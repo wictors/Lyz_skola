@@ -34,6 +34,14 @@ public class MysqlHodinaDaoTest {
         
         Assert.assertEquals(2, hodiny.size());
     }
-
+    
+    @Test
+    public void testMenaInstruktorov(){
+        String datum = "2015-04-03";
+        MysqlHodinaDao dao = new MysqlHodinaDao(ObjectFactory.INSTANCE.getJdbcTemplate());
+        List<String> mena = dao.menaInstruktorov(datum);
+        
+        Assert.assertEquals("seno", mena.get(1));
+    }
     
 }

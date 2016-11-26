@@ -26,5 +26,13 @@ public class MysqlHodinaDao implements HodinaDao {
         BeanPropertyRowMapper<Hodina> mapper = BeanPropertyRowMapper.newInstance(Hodina.class);
         return jdbcTemplate.query(sql, mapper, datum);
     }
+
+    @Override
+    public List<String> menaInstruktorov(String datum) {
+        String sql = "select I.priezvisko from hodina as H join instruktor as I on H.instruktor = I.id"
+                + " WHERE datum = ?";
+        BeanPropertyRowMapper<String> mapper = BeanPropertyRowMapper.newInstance(String.class);
+        return jdbcTemplate.query(sql, mapper, datum);
+    }
     
 }
