@@ -33,6 +33,7 @@ public class HodinyTableModel extends AbstractTableModel {
     public Object getValueAt(int rowIndex, int columnIndex) {
         Hodina hodina = hodinaDao.podlaDatumu(datum).get(rowIndex);
         String menoI = hodinaDao.menaInstruktorov(datum).get(rowIndex);
+        String menoZ = hodinaDao.menaZakaznikov(datum).get(rowIndex);
         switch (columnIndex) {
             case 0:
                 return hodina.getDatum();
@@ -41,9 +42,9 @@ public class HodinyTableModel extends AbstractTableModel {
             case 2:
                 return hodina.getPo();
             case 3:
-                return menoI; // Skusit implementovat aby vypisovalo MENA 
+                return menoI; 
             case 4:
-                return hodina.getZakaznik(); // Skusit implementovat aby vypisovalo MENA 
+                return menoZ;
             case 5:
                 String typ = hodina.getTyp();
                 if (typ == null){

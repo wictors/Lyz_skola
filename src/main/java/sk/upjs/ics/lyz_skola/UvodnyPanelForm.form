@@ -25,13 +25,25 @@
       <Group type="103" groupAlignment="0" attributes="0">
           <Group type="102" alignment="1" attributes="0">
               <EmptySpace max="-2" attributes="0"/>
-              <Component id="datumButton" min="-2" max="-2" attributes="0"/>
-              <EmptySpace max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
-                  <Component id="formatDatumuLabel" max="32767" attributes="0"/>
-                  <Component id="datumTextField" pref="143" max="32767" attributes="0"/>
+                  <Group type="102" attributes="0">
+                      <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                          <Component id="instruktoriButton" alignment="0" max="32767" attributes="0"/>
+                          <Component id="zakazniciButton" alignment="0" max="32767" attributes="0"/>
+                          <Component id="vyucbaButton" alignment="0" max="32767" attributes="0"/>
+                      </Group>
+                      <EmptySpace max="32767" attributes="0"/>
+                  </Group>
+                  <Group type="102" alignment="1" attributes="0">
+                      <Component id="datumButton" pref="74" max="32767" attributes="0"/>
+                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                          <Component id="formatDatumuLabel" pref="131" max="32767" attributes="0"/>
+                          <Component id="datumTextField" max="32767" attributes="0"/>
+                      </Group>
+                      <EmptySpace pref="25" max="32767" attributes="0"/>
+                  </Group>
               </Group>
-              <EmptySpace type="separate" max="-2" attributes="0"/>
               <Component id="jScrollPane1" min="-2" max="-2" attributes="0"/>
               <EmptySpace max="-2" attributes="0"/>
           </Group>
@@ -45,7 +57,13 @@
               <EmptySpace max="-2" attributes="0"/>
           </Group>
           <Group type="102" alignment="1" attributes="0">
-              <EmptySpace pref="311" max="32767" attributes="0"/>
+              <EmptySpace min="-2" pref="60" max="-2" attributes="0"/>
+              <Component id="vyucbaButton" min="-2" max="-2" attributes="0"/>
+              <EmptySpace type="separate" max="-2" attributes="0"/>
+              <Component id="instruktoriButton" min="-2" max="-2" attributes="0"/>
+              <EmptySpace type="separate" max="-2" attributes="0"/>
+              <Component id="zakazniciButton" min="-2" max="-2" attributes="0"/>
+              <EmptySpace pref="146" max="32767" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
                   <Component id="datumButton" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="datumTextField" alignment="3" min="-2" max="-2" attributes="0"/>
@@ -117,6 +135,24 @@
     <Component class="javax.swing.JLabel" name="formatDatumuLabel">
       <Properties>
         <Property name="text" type="java.lang.String" value="&quot;yyyy-MM-dd&quot;"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JButton" name="vyucbaButton">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="V&#xfd;u&#x10d;ba"/>
+      </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="vyucbaButtonActionPerformed"/>
+      </Events>
+    </Component>
+    <Component class="javax.swing.JButton" name="instruktoriButton">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="In&#x161;truktori"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JButton" name="zakazniciButton">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Z&#xe1;kazn&#xed;ci"/>
       </Properties>
     </Component>
   </SubComponents>

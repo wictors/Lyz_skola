@@ -15,7 +15,7 @@ public class MysqlInstruktorDao implements InstruktorDao {
     }
 
     @Override
-    public List<Instruktor> podlaPirezviska(String priezvisko) {
+    public List<Instruktor> podlaPriezviska(String priezvisko) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 

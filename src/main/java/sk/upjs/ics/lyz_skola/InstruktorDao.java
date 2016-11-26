@@ -6,7 +6,7 @@ public interface InstruktorDao {
     
     public List<Instruktor> dajInstruktorov();
     public void pridajInstruktora(Instruktor instruktor);
-    public List<Instruktor> podlaPirezviska(String priezvisko);
+    public List<Instruktor> podlaPriezviska(String priezvisko);
     public Instruktor podlaId (Long id);
     
 }

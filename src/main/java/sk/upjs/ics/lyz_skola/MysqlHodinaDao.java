@@ -1,9 +1,12 @@
 package sk.upjs.ics.lyz_skola;
 
+import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.util.Date;
 import java.util.List;
 import org.springframework.jdbc.core.BeanPropertyRowMapper;
 import org.springframework.jdbc.core.JdbcTemplate;
+import org.springframework.jdbc.core.RowMapper;
 
 public class MysqlHodinaDao implements HodinaDao {
     
@@ -31,8 +34,26 @@ public class MysqlHodinaDao implements HodinaDao {
     public List<String> menaInstruktorov(String datum) {
         String sql = "select I.priezvisko from hodina as H join instruktor as I on H.instruktor = I.id"
                 + " WHERE datum = ?";
-        BeanPropertyRowMapper<String> mapper = BeanPropertyRowMapper.newInstance(String.class);
-        return jdbcTemplate.query(sql, mapper, datum);
+        return jdbcTemplate.query(sql, new UlohaRowMapper(), datum);
+    }
+
+    @Override
+    public List<String> menaZakaznikov(String datum) {
+        String sql = "select Z.priezvisko from hodina as H join zakaznik as Z on H.zakaznik = Z.id"
+                + " WHERE datum = ?";
+        return jdbcTemplate.query(sql, new UlohaRowMapper(), datum);
+
     }
     
+    
+    private class UlohaRowMapper implements RowMapper<String> {
+
+        @Override
+        public String mapRow(ResultSet rs, int i) throws SQLException {
+            String meno ="";
+            meno = rs.getString("priezvisko");
+            return meno;
+        }
+        
+    }
 }
