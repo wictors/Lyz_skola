@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 
-<Form version="1.3" maxVersion="1.9" type="org.netbeans.modules.form.forminfo.JFrameFormInfo">
+<Form version="1.5" maxVersion="1.9" type="org.netbeans.modules.form.forminfo.JFrameFormInfo">
   <Properties>
     <Property name="defaultCloseOperation" type="int" value="3"/>
   </Properties>
@@ -24,36 +24,31 @@
     <DimensionLayout dim="0">
       <Group type="103" groupAlignment="0" attributes="0">
           <Group type="102" alignment="1" attributes="0">
+              <EmptySpace max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" alignment="0" attributes="0">
                       <Group type="103" groupAlignment="0" max="-2" attributes="0">
                           <Group type="102" alignment="0" attributes="0">
-                              <EmptySpace max="-2" attributes="0"/>
                               <Component id="zadajAkreditaciuLabel" min="-2" max="-2" attributes="0"/>
                               <EmptySpace type="separate" max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                                  <Component id="akreditaciaTextField" max="32767" attributes="0"/>
-                                  <Component id="zoradPodlaAkreditacieButton" max="32767" attributes="0"/>
+                                  <Component id="vypisPodlaAkreditacieButton" max="32767" attributes="0"/>
+                                  <Component id="akreditaciaComboBox" max="32767" attributes="0"/>
                               </Group>
                           </Group>
                           <Group type="102" alignment="0" attributes="0">
-                              <EmptySpace max="-2" attributes="0"/>
                               <Component id="zadajTypLabel" min="-2" pref="86" max="-2" attributes="0"/>
                               <EmptySpace type="separate" max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="0" attributes="0">
-                                  <Component id="zoradPodlaTypuButton" max="32767" attributes="0"/>
-                                  <Component id="typTextField" max="32767" attributes="0"/>
+                                  <Component id="zoradPodlaPriezviskaButton" alignment="1" max="32767" attributes="0"/>
+                                  <Component id="vypisPodlaTypuButton" max="32767" attributes="0"/>
+                                  <Component id="typComboBox" alignment="0" max="32767" attributes="0"/>
                               </Group>
-                          </Group>
-                          <Group type="102" alignment="0" attributes="0">
-                              <EmptySpace max="32767" attributes="0"/>
-                              <Component id="zoradPodlaPriezviskaButton" min="-2" pref="149" max="-2" attributes="0"/>
                           </Group>
                       </Group>
                       <EmptySpace max="32767" attributes="0"/>
                   </Group>
                   <Group type="102" alignment="0" attributes="0">
-                      <EmptySpace max="-2" attributes="0"/>
                       <Component id="vratitSpatButton" min="-2" pref="95" max="-2" attributes="0"/>
                       <EmptySpace pref="21" max="32767" attributes="0"/>
                       <Component id="pridatInstruktoraButton" min="-2" pref="169" max="-2" attributes="0"/>
@@ -75,22 +70,22 @@
                   </Group>
                   <Group type="102" alignment="1" attributes="0">
                       <EmptySpace min="-2" pref="38" max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="3" attributes="0">
-                          <Component id="zadajAkreditaciuLabel" alignment="3" min="-2" pref="23" max="-2" attributes="0"/>
-                          <Component id="akreditaciaTextField" alignment="3" min="-2" pref="23" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                          <Component id="zadajAkreditaciuLabel" pref="23" max="32767" attributes="0"/>
+                          <Component id="akreditaciaComboBox" max="32767" attributes="0"/>
                       </Group>
                       <EmptySpace max="-2" attributes="0"/>
-                      <Component id="zoradPodlaAkreditacieButton" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace min="-2" pref="19" max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="3" attributes="0">
-                          <Component id="zadajTypLabel" alignment="3" min="-2" pref="23" max="-2" attributes="0"/>
-                          <Component id="typTextField" alignment="3" min="-2" pref="23" max="-2" attributes="0"/>
+                      <Component id="vypisPodlaAkreditacieButton" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="18" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                          <Component id="zadajTypLabel" pref="23" max="32767" attributes="0"/>
+                          <Component id="typComboBox" max="32767" attributes="0"/>
                       </Group>
-                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                      <Component id="zoradPodlaTypuButton" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace min="-2" pref="38" max="-2" attributes="0"/>
+                      <EmptySpace max="-2" attributes="0"/>
+                      <Component id="vypisPodlaTypuButton" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="43" max="-2" attributes="0"/>
                       <Component id="zoradPodlaPriezviskaButton" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace pref="134" max="32767" attributes="0"/>
+                      <EmptySpace pref="135" max="32767" attributes="0"/>
                       <Group type="103" groupAlignment="0" max="-2" attributes="0">
                           <Component id="vratitSpatButton" max="32767" attributes="0"/>
                           <Component id="pridatInstruktoraButton" max="32767" attributes="0"/>
@@ -112,13 +107,8 @@
       <SubComponents>
         <Component class="javax.swing.JTable" name="instruktoriTable">
           <Properties>
-            <Property name="model" type="javax.swing.table.TableModel" editor="org.netbeans.modules.form.editors2.TableModelEditor">
-              <Table columnCount="4" rowCount="4">
-                <Column editable="true" title="Title 1" type="java.lang.Object"/>
-                <Column editable="true" title="Title 2" type="java.lang.Object"/>
-                <Column editable="true" title="Title 3" type="java.lang.Object"/>
-                <Column editable="true" title="Title 4" type="java.lang.Object"/>
-              </Table>
+            <Property name="model" type="javax.swing.table.TableModel" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
+              <Connection code="new InstruktoriTableModel()" type="code"/>
             </Property>
             <Property name="columnModel" type="javax.swing.table.TableColumnModel" editor="org.netbeans.modules.form.editors2.TableColumnModelEditor">
               <TableColumnModel selectionModel="0">
@@ -163,35 +153,73 @@
       <Properties>
         <Property name="text" type="java.lang.String" value="Zora&#x10f; pod&#x13e;a priezviska"/>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="zoradPodlaPriezviskaButtonActionPerformed"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JLabel" name="zadajAkreditaciuLabel">
       <Properties>
         <Property name="text" type="java.lang.String" value="Zadaj akredit&#xe1;ciu:"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JTextField" name="akreditaciaTextField">
-    </Component>
-    <Component class="javax.swing.JButton" name="zoradPodlaAkreditacieButton">
+    <Component class="javax.swing.JButton" name="vypisPodlaAkreditacieButton">
       <Properties>
-        <Property name="text" type="java.lang.String" value="Zora&#x10f; pod&#x13e;a akredit&#xe1;cie"/>
+        <Property name="text" type="java.lang.String" value="Vyp&#xed;&#x161; pod&#x13e;a akredit&#xe1;cie"/>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="vypisPodlaAkreditacieButtonActionPerformed"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JLabel" name="zadajTypLabel">
       <Properties>
         <Property name="text" type="java.lang.String" value="            Zadaj typ:"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JTextField" name="typTextField">
-    </Component>
-    <Component class="javax.swing.JButton" name="zoradPodlaTypuButton">
+    <Component class="javax.swing.JButton" name="vypisPodlaTypuButton">
       <Properties>
-        <Property name="text" type="java.lang.String" value="Zora&#x10f; pod&#x13e;a typu"/>
+        <Property name="text" type="java.lang.String" value="Vyp&#xed;&#x161; pod&#x13e;a typu"/>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="vypisPodlaTypuButtonActionPerformed"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JButton" name="pridatInstruktoraButton">
       <Properties>
         <Property name="text" type="java.lang.String" value="Pridaj in&#x161;truktora"/>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="pridatInstruktoraButtonActionPerformed"/>
+      </Events>
+    </Component>
+    <Component class="javax.swing.JComboBox" name="akreditaciaComboBox">
+      <Properties>
+        <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
+          <StringArray count="4">
+            <StringItem index="0" value="Item 1"/>
+            <StringItem index="1" value="Item 2"/>
+            <StringItem index="2" value="Item 3"/>
+            <StringItem index="3" value="Item 4"/>
+          </StringArray>
+        </Property>
+      </Properties>
+      <AuxValues>
+        <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
+      </AuxValues>
+    </Component>
+    <Component class="javax.swing.JComboBox" name="typComboBox">
+      <Properties>
+        <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
+          <StringArray count="4">
+            <StringItem index="0" value="Item 1"/>
+            <StringItem index="1" value="Item 2"/>
+            <StringItem index="2" value="Item 3"/>
+            <StringItem index="3" value="Item 4"/>
+          </StringArray>
+        </Property>
+      </Properties>
+      <AuxValues>
+        <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
+      </AuxValues>
     </Component>
   </SubComponents>
 </Form>
