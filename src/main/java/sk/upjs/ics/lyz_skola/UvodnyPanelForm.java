@@ -1,5 +1,10 @@
 package sk.upjs.ics.lyz_skola;
 
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+import java.util.Scanner;
+
 public class UvodnyPanelForm extends javax.swing.JFrame {
     
     private String nastavenyDatum;
@@ -12,6 +17,21 @@ public class UvodnyPanelForm extends javax.swing.JFrame {
     private void aktualizovatUvodnyPanel() {
         HodinyTableModel model = (HodinyTableModel) hodinyTable.getModel();                
         model.aktualizovat(nastavenyDatum);
+    }
+    
+    private boolean kontrolaDatumu(String datum){
+        boolean vystup = true;
+        Scanner scan = new Scanner(datum).useDelimiter("-");
+        while(scan.hasNext()){
+            if(scan.hasNextInt()){
+		scan.next();
+            }else{
+		vystup = false;
+		scan.next();
+            }
+	}
+        scan.close();
+        return vystup;
     }
 
     /**
@@ -56,8 +76,18 @@ public class UvodnyPanelForm extends javax.swing.JFrame {
         });
 
         instruktoriButton.setText("Inštruktori");
+        instruktoriButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                instruktoriButtonActionPerformed(evt);
+            }
+        });
 
         zakazniciButton.setText("Zákazníci");
+        zakazniciButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                zakazniciButtonActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -109,12 +139,40 @@ public class UvodnyPanelForm extends javax.swing.JFrame {
 
     private void datumButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_datumButtonActionPerformed
         nastavenyDatum = datumTextField.getText();
-        aktualizovatUvodnyPanel();
+        boolean spravnost = true;
+        Date datum;
+        DateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
+        try {
+            datum = dateFormat.parse(nastavenyDatum);
+        } catch (Exception e) {
+            spravnost = false;
+        }
+        if(spravnost){
+            if(kontrolaDatumu(nastavenyDatum)){
+                aktualizovatUvodnyPanel();
+            }else{
+                VynimkaVyucbaDialog vynimka = new VynimkaVyucbaDialog(this, true);
+                vynimka.setVisible(true);
+            }
+        }else{
+            VynimkaVyucbaDialog vynimka = new VynimkaVyucbaDialog(this, true);
+            vynimka.setVisible(true);
+        }
     }//GEN-LAST:event_datumButtonActionPerformed
 
     private void vyucbaButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_vyucbaButtonActionPerformed
         this.setVisible(false);
+        VyucbaForm vyucbaForm = new VyucbaForm(this);
+        vyucbaForm.setVisible(true);
     }//GEN-LAST:event_vyucbaButtonActionPerformed
+
+    private void instruktoriButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_instruktoriButtonActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_instruktoriButtonActionPerformed
+
+    private void zakazniciButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_zakazniciButtonActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_zakazniciButtonActionPerformed
 
     /**
      * @param args the command line arguments

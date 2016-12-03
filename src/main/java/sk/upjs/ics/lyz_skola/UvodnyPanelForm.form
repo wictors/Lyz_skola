@@ -149,11 +149,17 @@
       <Properties>
         <Property name="text" type="java.lang.String" value="In&#x161;truktori"/>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="instruktoriButtonActionPerformed"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JButton" name="zakazniciButton">
       <Properties>
         <Property name="text" type="java.lang.String" value="Z&#xe1;kazn&#xed;ci"/>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="zakazniciButtonActionPerformed"/>
+      </Events>
     </Component>
   </SubComponents>
 </Form>

@@ -30,18 +30,18 @@ public enum ObjectFactory {
         return hodinaDao;
     }
     
-//    public InstruktorDao getInstruktorDao(){
-//        if(instruktorDao == null){
-//            instruktorDao = new MysqlInstruktorDao(getJdbcTemplate());
-//        }
-//        return instruktorDao;
-//    }
-//    
-//    public ZakaznikDao getZakaznikDao(){
-//        if(zakaznikDao == null){
-//            zakaznikDao = new MysqlZakaznikDao(getJdbcTemplate());
-//        }
-//        return zakaznikDao;
-//    }
+    public InstruktorDao getInstruktorDao(){
+        if(instruktorDao == null){
+            instruktorDao = new MysqlInstruktorDao(getJdbcTemplate());
+        }
+        return instruktorDao;
+    }
+    
+    public ZakaznikDao getZakaznikDao(){
+        if(zakaznikDao == null){
+            zakaznikDao = new MysqlZakaznikDao(getJdbcTemplate());
+        }
+        return zakaznikDao;
+    }
     
 }

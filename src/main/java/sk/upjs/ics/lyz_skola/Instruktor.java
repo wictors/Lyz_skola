@@ -65,4 +65,11 @@ public class Instruktor {
     public void setAkreditacia(String akreditacia) {
         this.akreditacia = akreditacia;
     }    
+
+    @Override
+    public String toString() {
+        return priezvisko;
+    }
+    
+    
 }

@@ -13,7 +13,7 @@ public class HodinyTableModel extends AbstractTableModel {
     
     private HodinaDao hodinaDao = ObjectFactory.INSTANCE.getHodinaDao();
     
-    private static final String[] NAZVY_STLPCOV = { "Datum", "Od", "Do", "Instruktor", "Zakaznik", "Typ" };
+    private static final String[] NAZVY_STLPCOV = { "Datum", "Od", "Do", "Instruktor", "Zakaznik", "Typ", "Stav" };
     
     private static final int POCET_STLPCOV = NAZVY_STLPCOV.length;
     
@@ -32,8 +32,6 @@ public class HodinyTableModel extends AbstractTableModel {
     @Override
     public Object getValueAt(int rowIndex, int columnIndex) {
         Hodina hodina = hodinaDao.podlaDatumu(datum).get(rowIndex);
-        String menoI = hodinaDao.menaInstruktorov(datum).get(rowIndex);
-        String menoZ = hodinaDao.menaZakaznikov(datum).get(rowIndex);
         switch (columnIndex) {
             case 0:
                 return hodina.getDatum();
@@ -42,15 +40,17 @@ public class HodinyTableModel extends AbstractTableModel {
             case 2:
                 return hodina.getPo();
             case 3:
-                return menoI; 
+                return hodina.getInstruktor().getPriezvisko(); 
             case 4:
-                return menoZ;
+                return hodina.getZakaznik().getPriezvisko();
             case 5:
                 String typ = hodina.getTyp();
                 if (typ == null){
                     return "ziadny";
                 }
                 return typ;
+            case 6:
+                return hodina.isStav();
             default:
                 return "???";
         }
@@ -60,6 +60,16 @@ public class HodinyTableModel extends AbstractTableModel {
     public String getColumnName(int column) {
         return NAZVY_STLPCOV[column];
     }
+
+    @Override
+    public Class<?> getColumnClass(int columnIndex) {
+        if (columnIndex == 6) {
+            return Boolean.class;
+        }
+        return super.getColumnClass(columnIndex);
+    }
+    
+    
     
     void aktualizovat(String nastavenyDatum){
         DateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");

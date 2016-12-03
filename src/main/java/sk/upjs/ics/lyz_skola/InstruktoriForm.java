@@ -42,7 +42,6 @@ public class InstruktoriForm extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        instruktoriTable.setModel(new InstruktoriTableModel());
         jScrollPane1.setViewportView(instruktoriTable);
 
         vratitSpatButton.setText("Späť");

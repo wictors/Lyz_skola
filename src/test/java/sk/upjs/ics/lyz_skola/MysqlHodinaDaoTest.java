@@ -36,12 +36,16 @@ public class MysqlHodinaDaoTest {
     }
     
     @Test
-    public void testMenaInstruktorov(){
-        String datum = "2015-04-03";
+    public void testObsadenost() throws ParseException{
+        String datum = "2016-11-25";
+        DateFormat timeFormat = new SimpleDateFormat("HH:mm");
+        java.sql.Time casOd = new java.sql.Time(timeFormat.parse("08:00").getTime());
+        java.sql.Time casDo = new java.sql.Time(timeFormat.parse("11:00").getTime());
+        Long id = 1L;
         MysqlHodinaDao dao = new MysqlHodinaDao(ObjectFactory.INSTANCE.getJdbcTemplate());
-        List<String> mena = dao.menaInstruktorov(datum);
+        List<Long> vystup = dao.obsadenost(datum,casOd,casDo,id);
         
-        Assert.assertEquals("seno", mena.get(1));
+        Assert.assertEquals(1, vystup.size());
     }
     
 }

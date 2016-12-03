@@ -9,9 +9,19 @@ public class Hodina {
     private String datum;
     private Time od;
     private Time po;
-    private Long zakaznik;
-    private Long instruktor;
+    private Zakaznik zakaznik;
+    private Instruktor instruktor;
     private String typ;
+    private boolean stav;
+
+    public boolean isStav() {
+        return stav;
+    }
+
+    public void setStav(boolean stav) {
+        this.stav = stav;
+    }
+    
 
     public String getTyp() {
         return typ;
@@ -53,19 +63,19 @@ public class Hodina {
         this.datum = datum;
     }
 
-    public Long getZakaznik() {
+    public Zakaznik getZakaznik() {
         return zakaznik;
     }
 
-    public void setZakaznik(Long zakaznik) {
+    public void setZakaznik(Zakaznik zakaznik) {
         this.zakaznik = zakaznik;
     }
 
-    public Long getInstruktor() {
+    public Instruktor getInstruktor() {
         return instruktor;
     }
 
-    public void setInstruktor(Long instruktor) {
+    public void setInstruktor(Instruktor instruktor) {
         this.instruktor = instruktor;
     }
   
