@@ -8,5 +8,5 @@ public interface HodinaDao {
     public void pridajHodinu(Hodina hodina);
     public List<Hodina> podlaDatumu(String datum);
     public List<Long> obsadenost(String datum, Time od, Time po, Long id);
-    
+    public Long oduceneHodiny();
 }

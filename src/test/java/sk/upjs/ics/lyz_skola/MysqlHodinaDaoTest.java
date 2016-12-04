@@ -48,4 +48,12 @@ public class MysqlHodinaDaoTest {
         Assert.assertEquals(1, vystup.size());
     }
     
+    @Test
+    public void testOduceneHodiny(){
+        MysqlHodinaDao dao = new MysqlHodinaDao(ObjectFactory.INSTANCE.getJdbcTemplate());
+        Long pocet = dao.oduceneHodiny();
+        Long odpoved = 2L;
+        Assert.assertEquals(odpoved, pocet);
+    }
+    
 }

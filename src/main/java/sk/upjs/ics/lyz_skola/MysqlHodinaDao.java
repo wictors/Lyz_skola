@@ -50,6 +50,12 @@ public class MysqlHodinaDao implements HodinaDao {
                 + " ((? <= h.od and h.od < ?) or (? < h.po and h.po <= ?))";
         return jdbcTemplate.query(sql, new ObsadenostRowMapper(),datum,id,od,po,od,po);
     }
+
+    @Override
+    public Long oduceneHodiny() {
+        String sql = "select count(*) from hodina where stav = 1";
+        return jdbcTemplate.queryForObject(sql,Long.class);
+    }
     
     private class ObsadenostRowMapper implements RowMapper<Long>{
 

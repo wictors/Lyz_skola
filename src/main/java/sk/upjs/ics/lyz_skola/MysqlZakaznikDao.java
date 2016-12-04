@@ -20,25 +20,59 @@ public class MysqlZakaznikDao implements ZakaznikDao {
     }
 
     @Override
-    public List<Zakaznik> utriedenyPodlaPriezviska(String priezvisko) {
-        String sql = "SELECT * FROM lyz_skola.zakaznik order by ?";
+    public List<Zakaznik> utriedenyPodlaPriezviska() {
+        String sql = "SELECT * FROM lyz_skola.zakaznik order by priezvisko";
         BeanPropertyRowMapper<Zakaznik> mapper = BeanPropertyRowMapper.newInstance(Zakaznik.class);
-        return jdbcTemplate.query(sql, mapper,priezvisko);
+        return jdbcTemplate.query(sql, mapper);
     }
 
     @Override
-    public Zakaznik podlaId(Long id) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    public List<Zakaznik> podlaTelefonu(int telefon) {
+        String sql = "SELECT * from zakaznik WHERE telefon = ?";
+        BeanPropertyRowMapper<Zakaznik> mapper = BeanPropertyRowMapper.newInstance(Zakaznik.class);
+        return jdbcTemplate.query(sql, mapper,telefon);
     }
 
     @Override
-    public Zakaznik podlaPriezviska(String priezvisko) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    public List<Zakaznik> podlaPriezviska(String priezvisko) {
+        String sql = "SELECT * FROM zakaznik WHERE priezvisko = ?";
+        BeanPropertyRowMapper<Zakaznik> mapper = BeanPropertyRowMapper.newInstance(Zakaznik.class);
+        
+        return jdbcTemplate.query(sql,mapper,priezvisko);
     }
 
     @Override
     public void pridajZakaznika(Zakaznik zakaznik) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        String sql = "INSERT INTO zakaznik (meno, priezvisko, poznamka, telefon, email)"
+                + " VALUES(?,?,?,?,?)";
+        jdbcTemplate.update(sql,zakaznik.getMeno(),zakaznik.getPriezvisko(),zakaznik.getPoznamka(),
+                zakaznik.getTelefon(),zakaznik.getEmail());
+    }
+
+    @Override
+    public void aktualizujPoznamka(String poznamka, Long id) {
+        String sql = "UPDATE zakaznik SET poznamka = ? WHERE id = ?";
+        jdbcTemplate.update(sql,poznamka,id);
+    }
+
+    @Override
+    public void aktualizujTelefon(int telefon, Long id) {
+        String sql = "UPDATE zakaznik SET telefon = ? WHERE id = ?";
+        jdbcTemplate.update(sql,telefon,id);
+    }
+
+    @Override
+    public List<Zakaznik> podlaId(Long id) {
+        String sql = "SELECT * FROM zakaznik WHERE id = ?";
+        BeanPropertyRowMapper<Zakaznik> mapper = BeanPropertyRowMapper.newInstance(Zakaznik.class);
+        
+        return jdbcTemplate.query(sql,mapper,id);
+    }
+
+    @Override
+    public void vymazZakaznika(Long id) {
+        String sql = "DELETE FROM zakaznik WHERE id = ?";
+        jdbcTemplate.update(sql,id);
     }
     
     

@@ -53,6 +53,8 @@ public class UvodnyPanelForm extends javax.swing.JFrame {
         zakazniciButton = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setLocation(new java.awt.Point(308, 204));
+        setPreferredSize(new java.awt.Dimension(750, 360));
 
         hodinyTable.setModel(new HodinyTableModel());
         jScrollPane1.setViewportView(hodinyTable);
@@ -95,40 +97,40 @@ public class UvodnyPanelForm extends javax.swing.JFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addContainerGap()
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                    .addComponent(instruktoriButton, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 93, Short.MAX_VALUE)
+                    .addComponent(zakazniciButton, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(datumButton, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(vyucbaButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(instruktoriButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(zakazniciButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(vyucbaButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addComponent(datumButton, javax.swing.GroupLayout.DEFAULT_SIZE, 74, Short.MAX_VALUE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(formatDatumuLabel, javax.swing.GroupLayout.DEFAULT_SIZE, 131, Short.MAX_VALUE)
-                            .addComponent(datumTextField))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 25, Short.MAX_VALUE)))
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(formatDatumuLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 131, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(0, 0, Short.MAX_VALUE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(datumTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 491, Short.MAX_VALUE)))
                 .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
-                .addContainerGap())
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addGap(60, 60, 60)
-                .addComponent(vyucbaButton)
-                .addGap(18, 18, 18)
-                .addComponent(instruktoriButton)
-                .addGap(18, 18, 18)
-                .addComponent(zakazniciButton)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 146, Short.MAX_VALUE)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(datumButton)
-                    .addComponent(datumTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(60, 60, 60)
+                        .addComponent(vyucbaButton)
+                        .addGap(18, 18, 18)
+                        .addComponent(instruktoriButton)
+                        .addGap(18, 18, 18)
+                        .addComponent(zakazniciButton)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 145, Short.MAX_VALUE)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(datumButton)
+                            .addComponent(datumTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addGroup(layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(formatDatumuLabel)
                 .addGap(13, 13, 13))
@@ -151,11 +153,11 @@ public class UvodnyPanelForm extends javax.swing.JFrame {
             if(kontrolaDatumu(nastavenyDatum)){
                 aktualizovatUvodnyPanel();
             }else{
-                VynimkaVyucbaDialog vynimka = new VynimkaVyucbaDialog(this, true);
+                NespravneUdajeDialog vynimka = new NespravneUdajeDialog(this, true);
                 vynimka.setVisible(true);
             }
         }else{
-            VynimkaVyucbaDialog vynimka = new VynimkaVyucbaDialog(this, true);
+            NespravneUdajeDialog vynimka = new NespravneUdajeDialog(this, true);
             vynimka.setVisible(true);
         }
     }//GEN-LAST:event_datumButtonActionPerformed
@@ -164,6 +166,7 @@ public class UvodnyPanelForm extends javax.swing.JFrame {
         this.setVisible(false);
         VyucbaForm vyucbaForm = new VyucbaForm(this);
         vyucbaForm.setVisible(true);
+        aktualizovatUvodnyPanel();
     }//GEN-LAST:event_vyucbaButtonActionPerformed
 
     private void instruktoriButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_instruktoriButtonActionPerformed
@@ -171,7 +174,9 @@ public class UvodnyPanelForm extends javax.swing.JFrame {
     }//GEN-LAST:event_instruktoriButtonActionPerformed
 
     private void zakazniciButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_zakazniciButtonActionPerformed
-        // TODO add your handling code here:
+        this.setVisible(false);
+        ZakazniciForm zakazniciForm = new ZakazniciForm(this);
+        zakazniciForm.setVisible(true);
     }//GEN-LAST:event_zakazniciButtonActionPerformed
 
     /**

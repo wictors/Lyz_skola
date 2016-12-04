@@ -1,11 +1,11 @@
 package sk.upjs.ics.lyz_skola;
 
-public class VynimkaVyucbaDialog extends javax.swing.JDialog {
+public class NespravneUdajeDialog extends javax.swing.JDialog {
 
     /**
      * Creates new form VynimkaUdajeHodina
      */
-    public VynimkaVyucbaDialog(java.awt.Frame parent, boolean modal) {
+    public NespravneUdajeDialog(java.awt.Frame parent, boolean modal) {
         super(parent, modal);
         initComponents();
     }
@@ -81,21 +81,23 @@ public class VynimkaVyucbaDialog extends javax.swing.JDialog {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(VynimkaVyucbaDialog.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(NespravneUdajeDialog.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(VynimkaVyucbaDialog.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(NespravneUdajeDialog.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(VynimkaVyucbaDialog.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(NespravneUdajeDialog.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(VynimkaVyucbaDialog.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(NespravneUdajeDialog.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
+        //</editor-fold>
         //</editor-fold>
         //</editor-fold>
 
         /* Create and display the dialog */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                VynimkaVyucbaDialog dialog = new VynimkaVyucbaDialog(new javax.swing.JFrame(), true);
+                NespravneUdajeDialog dialog = new NespravneUdajeDialog(new javax.swing.JFrame(), true);
                 dialog.addWindowListener(new java.awt.event.WindowAdapter() {
                     @Override
                     public void windowClosing(java.awt.event.WindowEvent e) {
