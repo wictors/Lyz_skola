@@ -2,7 +2,12 @@ package sk.upjs.ics.lyz_skola;
 
 public class InstruktoriForm extends javax.swing.JFrame {
 
-    UvodnyPanelForm uvodnyPanel;
+    private UvodnyPanelForm uvodnyPanel;
+    private InstruktorDao instruktorDao = ObjectFactory.INSTANCE.getInstruktorDao();  
+    private Integer vstupZoznam;
+    private String priezvisko = null;
+    private String akreditacia = null;
+    private String typ = null;
     
     public InstruktoriForm() {
         
@@ -11,13 +16,14 @@ public class InstruktoriForm extends javax.swing.JFrame {
     public InstruktoriForm(UvodnyPanelForm uvodnyPanel){
         initComponents();
         this.uvodnyPanel = uvodnyPanel;
+        vstupZoznam = 0;
+        this.aktualizovatZoznam();
     }
     
-    private void aktualizovatInstruktoriFormPodlaTypu(String typ){
-        InstruktoriTableModel model = (InstruktoriTableModel) instruktoriTable.getModel();
-        model.aktualizovatPodlaTypu(typ);
-    }
-    
+    private void aktualizovatZoznam(){
+        InstruktoriTableModel instruktoriModel = (InstruktoriTableModel) instruktoriTable.getModel();
+        instruktoriModel.aktualizovat(vstupZoznam, priezvisko, akreditacia, typ);
+    }    
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -30,7 +36,7 @@ public class InstruktoriForm extends javax.swing.JFrame {
 
         jScrollPane1 = new javax.swing.JScrollPane();
         instruktoriTable = new javax.swing.JTable();
-        vratitSpatButton = new javax.swing.JButton();
+        spatButton = new javax.swing.JButton();
         zoradPodlaPriezviskaButton = new javax.swing.JButton();
         zadajAkreditaciuLabel = new javax.swing.JLabel();
         vypisPodlaAkreditacieButton = new javax.swing.JButton();
@@ -39,18 +45,27 @@ public class InstruktoriForm extends javax.swing.JFrame {
         pridatInstruktoraButton = new javax.swing.JButton();
         akreditaciaComboBox = new javax.swing.JComboBox<>();
         typComboBox = new javax.swing.JComboBox<>();
+        vypisPodlaPriezviskaButton = new javax.swing.JButton();
+        priezviskoTextField = new javax.swing.JTextField();
+        zadajPriezviskoLabel = new javax.swing.JLabel();
+        jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
+        instruktoriTable.setModel(new InstruktoriTableModel());
         jScrollPane1.setViewportView(instruktoriTable);
 
-        vratitSpatButton.setText("Späť");
-        vratitSpatButton.addActionListener(new java.awt.event.ActionListener() {
+        spatButton.setBackground(new java.awt.Color(0, 0, 255));
+        spatButton.setForeground(new java.awt.Color(255, 255, 255));
+        spatButton.setText("Späť");
+        spatButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                vratitSpatButtonActionPerformed(evt);
+                spatButtonActionPerformed(evt);
             }
         });
 
+        zoradPodlaPriezviskaButton.setBackground(new java.awt.Color(0, 0, 255));
+        zoradPodlaPriezviskaButton.setForeground(new java.awt.Color(255, 255, 255));
         zoradPodlaPriezviskaButton.setText("Zoraď podľa priezviska");
         zoradPodlaPriezviskaButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -60,6 +75,8 @@ public class InstruktoriForm extends javax.swing.JFrame {
 
         zadajAkreditaciuLabel.setText("Zadaj akreditáciu:");
 
+        vypisPodlaAkreditacieButton.setBackground(new java.awt.Color(0, 0, 255));
+        vypisPodlaAkreditacieButton.setForeground(new java.awt.Color(255, 255, 255));
         vypisPodlaAkreditacieButton.setText("Vypíš podľa akreditácie");
         vypisPodlaAkreditacieButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -69,6 +86,8 @@ public class InstruktoriForm extends javax.swing.JFrame {
 
         zadajTypLabel.setText("            Zadaj typ:");
 
+        vypisPodlaTypuButton.setBackground(new java.awt.Color(0, 0, 255));
+        vypisPodlaTypuButton.setForeground(new java.awt.Color(255, 255, 255));
         vypisPodlaTypuButton.setText("Vypíš podľa typu");
         vypisPodlaTypuButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -76,6 +95,8 @@ public class InstruktoriForm extends javax.swing.JFrame {
             }
         });
 
+        pridatInstruktoraButton.setBackground(new java.awt.Color(0, 0, 255));
+        pridatInstruktoraButton.setForeground(new java.awt.Color(255, 255, 255));
         pridatInstruktoraButton.setText("Pridaj inštruktora");
         pridatInstruktoraButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -83,9 +104,35 @@ public class InstruktoriForm extends javax.swing.JFrame {
             }
         });
 
-        akreditaciaComboBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        akreditaciaComboBox.setBackground(new java.awt.Color(0, 0, 255));
+        akreditaciaComboBox.setForeground(new java.awt.Color(255, 255, 255));
+        akreditaciaComboBox.setModel(new AkreditaciaComboBoxModel());
 
-        typComboBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        typComboBox.setBackground(new java.awt.Color(0, 0, 255));
+        typComboBox.setForeground(new java.awt.Color(255, 255, 255));
+        typComboBox.setModel(new TypComboBoxModel());
+
+        vypisPodlaPriezviskaButton.setBackground(new java.awt.Color(0, 0, 255));
+        vypisPodlaPriezviskaButton.setForeground(new java.awt.Color(255, 255, 255));
+        vypisPodlaPriezviskaButton.setText("Vypíš podľa priezviska");
+        vypisPodlaPriezviskaButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                vypisPodlaPriezviskaButtonActionPerformed(evt);
+            }
+        });
+
+        priezviskoTextField.setBackground(new java.awt.Color(0, 0, 255));
+        priezviskoTextField.setForeground(new java.awt.Color(255, 255, 255));
+        priezviskoTextField.setText("Priezvisko");
+        priezviskoTextField.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                priezviskoTextFieldActionPerformed(evt);
+            }
+        });
+
+        zadajPriezviskoLabel.setText("  Zadaj priezvisko:");
+
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/sk/upjs/ics/lyz_skola/backround/obr_1.jpeg"))); // NOI18N
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -95,24 +142,31 @@ public class InstruktoriForm extends javax.swing.JFrame {
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(layout.createSequentialGroup()
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addGap(9, 9, 9)
+                                        .addComponent(zadajPriezviskoLabel))
+                                    .addComponent(zadajTypLabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                                .addGap(18, 18, 18)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(zoradPodlaPriezviskaButton, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(vypisPodlaTypuButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(typComboBox, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(vypisPodlaPriezviskaButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(priezviskoTextField)))
                             .addGroup(layout.createSequentialGroup()
                                 .addComponent(zadajAkreditaciuLabel)
                                 .addGap(18, 18, 18)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                                     .addComponent(vypisPodlaAkreditacieButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addComponent(akreditaciaComboBox, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(zadajTypLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 86, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(18, 18, 18)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(zoradPodlaPriezviskaButton, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addComponent(vypisPodlaTypuButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addComponent(typComboBox, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+                                    .addComponent(akreditaciaComboBox, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(vratitSpatButton, javax.swing.GroupLayout.PREFERRED_SIZE, 95, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 21, Short.MAX_VALUE)
+                        .addComponent(spatButton, javax.swing.GroupLayout.PREFERRED_SIZE, 95, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(pridatInstruktoraButton, javax.swing.GroupLayout.PREFERRED_SIZE, 169, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, Short.MAX_VALUE)))
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 342, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -127,22 +181,34 @@ public class InstruktoriForm extends javax.swing.JFrame {
                         .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(38, 38, 38)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(zadajAkreditaciuLabel, javax.swing.GroupLayout.DEFAULT_SIZE, 23, Short.MAX_VALUE)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(zadajAkreditaciuLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(akreditaciaComboBox))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(vypisPodlaAkreditacieButton)
                         .addGap(18, 18, 18)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(zadajTypLabel, javax.swing.GroupLayout.DEFAULT_SIZE, 23, Short.MAX_VALUE)
-                            .addComponent(typComboBox))
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(typComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(zadajTypLabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(vypisPodlaTypuButton)
-                        .addGap(43, 43, 43)
-                        .addComponent(zoradPodlaPriezviskaButton)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 135, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(vratitSpatButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(zadajPriezviskoLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(priezviskoTextField, javax.swing.GroupLayout.DEFAULT_SIZE, 30, Short.MAX_VALUE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(vypisPodlaPriezviskaButton)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(layout.createSequentialGroup()
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 60, Short.MAX_VALUE)
+                                .addComponent(zoradPodlaPriezviskaButton)
+                                .addGap(48, 48, 48))
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(17, 17, 17)
+                                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(spatButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(pridatInstruktoraButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
                 .addContainerGap())
         );
@@ -150,27 +216,49 @@ public class InstruktoriForm extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void vratitSpatButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_vratitSpatButtonActionPerformed
+    private void spatButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_spatButtonActionPerformed
         this.dispose();
         uvodnyPanel.setVisible(true);
-    }//GEN-LAST:event_vratitSpatButtonActionPerformed
+    }//GEN-LAST:event_spatButtonActionPerformed
 
     private void pridatInstruktoraButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_pridatInstruktoraButtonActionPerformed
-        // TODO add your handling code here:
+        PridatInstruktoraDialog pridatInstruktoraDialog = new PridatInstruktoraDialog(this, true);
+        pridatInstruktoraDialog.setVisible(true);
+        vstupZoznam = 0;
+        aktualizovatZoznam();
     }//GEN-LAST:event_pridatInstruktoraButtonActionPerformed
 
     private void zoradPodlaPriezviskaButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_zoradPodlaPriezviskaButtonActionPerformed
-        // TODO add your handling code here:
+        vstupZoznam = 1;
+        aktualizovatZoznam();
     }//GEN-LAST:event_zoradPodlaPriezviskaButtonActionPerformed
 
     private void vypisPodlaTypuButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_vypisPodlaTypuButtonActionPerformed
         // TODO add your handling code here:
-        // TODO aktualizovatInstruktoriFormPodlaTypu(typ);
+        typ = (String) typComboBox.getSelectedItem();
+        vstupZoznam = 4;
+        aktualizovatZoznam();
+        
     }//GEN-LAST:event_vypisPodlaTypuButtonActionPerformed
 
     private void vypisPodlaAkreditacieButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_vypisPodlaAkreditacieButtonActionPerformed
         // TODO add your handling code here:
+        akreditacia = (String) akreditaciaComboBox.getSelectedItem();
+        vstupZoznam = 3;
+        aktualizovatZoznam();
     }//GEN-LAST:event_vypisPodlaAkreditacieButtonActionPerformed
+
+    private void vypisPodlaPriezviskaButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_vypisPodlaPriezviskaButtonActionPerformed
+        priezvisko = priezviskoTextField.getText();
+        vstupZoznam = 2;
+        aktualizovatZoznam();
+    }//GEN-LAST:event_vypisPodlaPriezviskaButtonActionPerformed
+
+    private void priezviskoTextFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_priezviskoTextFieldActionPerformed
+        if(priezviskoTextField.getText().equals("Priezvisko")){
+            priezviskoTextField.setText("");
+        }
+    }//GEN-LAST:event_priezviskoTextFieldActionPerformed
 
     /**
      * @param args the command line arguments
@@ -183,7 +271,7 @@ public class InstruktoriForm extends javax.swing.JFrame {
          */
         try {
             for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Windows".equals(info.getName())) {
+                if ("Nimbus".equals(info.getName())) {
                     javax.swing.UIManager.setLookAndFeel(info.getClassName());
                     break;
                 }
@@ -210,13 +298,17 @@ public class InstruktoriForm extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JComboBox<String> akreditaciaComboBox;
     private javax.swing.JTable instruktoriTable;
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JButton pridatInstruktoraButton;
+    private javax.swing.JTextField priezviskoTextField;
+    private javax.swing.JButton spatButton;
     private javax.swing.JComboBox<String> typComboBox;
-    private javax.swing.JButton vratitSpatButton;
     private javax.swing.JButton vypisPodlaAkreditacieButton;
+    private javax.swing.JButton vypisPodlaPriezviskaButton;
     private javax.swing.JButton vypisPodlaTypuButton;
     private javax.swing.JLabel zadajAkreditaciuLabel;
+    private javax.swing.JLabel zadajPriezviskoLabel;
     private javax.swing.JLabel zadajTypLabel;
     private javax.swing.JButton zoradPodlaPriezviskaButton;
     // End of variables declaration//GEN-END:variables
