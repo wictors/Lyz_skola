@@ -5,8 +5,11 @@ import java.util.List;
 public interface InstruktorDao {
     
     public List<Instruktor> dajInstruktorov();
-    public void pridajInstruktora(Instruktor instruktor);
+    public List<Instruktor> utriedenyPodlaPriezviska();
     public List<Instruktor> podlaPriezviska(String priezvisko);
-    public Instruktor podlaId (Long id);
+    public List<Instruktor> podlaAkreditacie(String akreditacia);
+    public List<Instruktor> podlaTypu(String typ);
+    public void pridajInstruktora(Instruktor instruktor);
+    public void vymazInstruktora(Long id);
     
 }

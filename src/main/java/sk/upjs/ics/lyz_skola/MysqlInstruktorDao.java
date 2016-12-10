@@ -18,25 +18,47 @@ public class MysqlInstruktorDao implements InstruktorDao {
         BeanPropertyRowMapper<Instruktor> mapper = BeanPropertyRowMapper.newInstance(Instruktor.class);
         return jdbcTemplate.query(sql, mapper);
     }
+    
+    @Override
+    public List<Instruktor> utriedenyPodlaPriezviska() {
+        String sql = "SELECT * FROM lyz_skola.instruktor ORDER BY priezvisko";
+        BeanPropertyRowMapper<Instruktor> mapper = BeanPropertyRowMapper.newInstance(Instruktor.class);
+        return jdbcTemplate.query(sql, mapper);
+    }
+    
+    @Override
+    public List<Instruktor> podlaPriezviska(String priezvisko) {
+        String sql = "SELECT * FROM instruktor WHERE priezvisko = ?";
+        BeanPropertyRowMapper<Instruktor> mapper = BeanPropertyRowMapper.newInstance(Instruktor.class);
+        return jdbcTemplate.query(sql, mapper, priezvisko);
+    }
+    
+    @Override
+    public List<Instruktor> podlaAkreditacie(String akreditacia) {
+        String sql = "SELECT * FROM instruktor WHERE akreditacia = ?";
+        BeanPropertyRowMapper<Instruktor> mapper = BeanPropertyRowMapper.newInstance(Instruktor.class);      
+        return jdbcTemplate.query(sql,mapper,akreditacia);
+    }
+    
+    @Override
+    public List<Instruktor> podlaTypu(String typ) {
+        String sql = "SELECT * FROM instruktor WHERE typ = ?";
+        BeanPropertyRowMapper<Instruktor> mapper = BeanPropertyRowMapper.newInstance(Instruktor.class);      
+        return jdbcTemplate.query(sql,mapper,typ);
+    }
 
     @Override
     public void pridajInstruktora(Instruktor instruktor) {
         jdbcTemplate.update("INSERT INTO instruktor(meno, priezvisko, email,"
-                + "akreditacia, typ, heslo) VALUES(?,?,?)", instruktor.getMeno(),
+                + "akreditacia, typ, heslo) VALUES(?,?,?,?,?,?)", instruktor.getMeno(),
                 instruktor.getPriezvisko(), instruktor.getEmail(), instruktor.getAkreditacia(),
                 instruktor.getTyp(), instruktor.getHeslo());
     }
 
     @Override
-    public List<Instruktor> podlaPriezviska(String priezvisko) {
-        String sql = "SELECT * FROM hodina WHERE priezvisko = ?";
-        BeanPropertyRowMapper<Instruktor> mapper = BeanPropertyRowMapper.newInstance(Instruktor.class);
-        return jdbcTemplate.query(sql, mapper, priezvisko);
-    }
-
-    @Override
-    public Instruktor podlaId(Long id) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    public void vymazInstruktora(Long id) {
+        String sql = "DELETE FROM instruktor WHERE id = ?";
+        jdbcTemplate.update(sql,id);
     }
     
 }
