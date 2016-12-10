@@ -71,6 +71,8 @@ public class ZakazniciTableModel extends AbstractTableModel {
         return NAZVY_STLPCOV[column];
     }
     
+    
+    
     void aktualizovat(int vstup, String priezvisko, int telefon, Long id){
         if(vstup == 0){
             zakaznici = zakaznikDao.dajZakaznikov();

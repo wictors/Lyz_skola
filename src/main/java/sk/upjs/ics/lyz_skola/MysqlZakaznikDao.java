@@ -74,6 +74,20 @@ public class MysqlZakaznikDao implements ZakaznikDao {
         String sql = "DELETE FROM zakaznik WHERE id = ?";
         jdbcTemplate.update(sql,id);
     }
+
+    @Override
+    public boolean nemaHodinu(Long id) {
+        String sql = "SELECT count(*) FROM hodina WHERE zakaznik = ?";
+        BeanPropertyRowMapper<Hodina> mapper = BeanPropertyRowMapper.newInstance(Hodina.class);
+        Long pocet = jdbcTemplate.queryForObject(sql, Long.class,id);
+        if(pocet == 0L){
+            return true;
+        }else{
+            return false;
+        }
+        
+
+    }
     
     
 }

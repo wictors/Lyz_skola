@@ -13,4 +13,5 @@ public interface ZakaznikDao {
     public void aktualizujPoznamka(String poznamka, Long id);
     public void aktualizujTelefon(int telefon, Long id);
     public void pridajZakaznika(Zakaznik zakaznik);
+    public boolean nemaHodinu(Long id);
 }

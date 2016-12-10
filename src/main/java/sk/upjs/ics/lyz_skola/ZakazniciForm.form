@@ -44,38 +44,37 @@
                           <Component id="telefonFilterTextField" max="32767" attributes="0"/>
                       </Group>
                       <EmptySpace type="separate" max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="1" max="-2" attributes="0">
-                          <Group type="102" alignment="0" attributes="0">
-                              <Component id="hladajTelefonButton" min="-2" max="-2" attributes="0"/>
-                              <EmptySpace max="32767" attributes="0"/>
-                              <Component id="telefonLabel" min="-2" max="-2" attributes="0"/>
-                          </Group>
-                          <Component id="idZakaznikaLabel" min="-2" max="-2" attributes="0"/>
-                          <Group type="102" attributes="0">
-                              <Component id="hladajPriezviskoButton" min="-2" max="-2" attributes="0"/>
-                              <EmptySpace min="-2" pref="196" max="-2" attributes="0"/>
-                              <Component id="poznamkaLabel" min="-2" max="-2" attributes="0"/>
-                          </Group>
-                      </Group>
-                      <EmptySpace type="separate" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Group type="102" attributes="0">
-                              <Component id="editButton" min="-2" max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="1" max="-2" attributes="0">
+                                  <Group type="102" alignment="0" attributes="0">
+                                      <Component id="hladajTelefonButton" min="-2" max="-2" attributes="0"/>
+                                      <EmptySpace max="32767" attributes="0"/>
+                                      <Component id="telefonLabel" min="-2" max="-2" attributes="0"/>
+                                  </Group>
+                                  <Group type="102" attributes="0">
+                                      <Component id="hladajPriezviskoButton" min="-2" max="-2" attributes="0"/>
+                                      <EmptySpace min="-2" pref="196" max="-2" attributes="0"/>
+                                      <Component id="poznamkaLabel" min="-2" max="-2" attributes="0"/>
+                                  </Group>
+                              </Group>
                               <EmptySpace type="separate" max="-2" attributes="0"/>
-                              <Component id="vymazButton" min="-2" max="-2" attributes="0"/>
-                              <EmptySpace min="0" pref="26" max="32767" attributes="0"/>
+                              <Group type="103" groupAlignment="0" attributes="0">
+                                  <Group type="102" attributes="0">
+                                      <Component id="editButton" min="-2" max="-2" attributes="0"/>
+                                      <EmptySpace type="separate" max="-2" attributes="0"/>
+                                      <Component id="vymazButton" min="-2" max="-2" attributes="0"/>
+                                      <EmptySpace min="0" pref="26" max="32767" attributes="0"/>
+                                  </Group>
+                                  <Component id="poznamkaTextField" max="32767" attributes="0"/>
+                                  <Component id="telefonEditTextField" max="32767" attributes="0"/>
+                              </Group>
                           </Group>
-                          <Group type="102" attributes="0">
-                              <Component id="idTextField" max="32767" attributes="0"/>
-                              <EmptySpace min="-2" pref="122" max="-2" attributes="0"/>
+                          <Group type="102" alignment="1" attributes="0">
+                              <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+                              <Component id="editaciaLabel" min="-2" pref="330" max="-2" attributes="0"/>
                           </Group>
-                          <Component id="poznamkaTextField" max="32767" attributes="0"/>
-                          <Component id="telefonEditTextField" max="32767" attributes="0"/>
                       </Group>
-                  </Group>
-                  <Group type="102" alignment="1" attributes="0">
-                      <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
-                      <Component id="editaciaLabel" min="-2" pref="330" max="-2" attributes="0"/>
                   </Group>
               </Group>
               <EmptySpace max="-2" attributes="0"/>
@@ -100,9 +99,7 @@
                   </Group>
                   <Component id="jScrollPane1" min="-2" pref="206" max="-2" attributes="0"/>
               </Group>
-              <EmptySpace type="separate" max="-2" attributes="0"/>
-              <Component id="editaciaLabel" min="-2" max="-2" attributes="0"/>
-              <EmptySpace min="-2" pref="18" max="-2" attributes="0"/>
+              <EmptySpace min="-2" pref="50" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="1" attributes="0">
                   <Group type="103" alignment="1" groupAlignment="3" attributes="0">
                       <Component id="hladajTelefonButton" alignment="3" min="-2" max="-2" attributes="0"/>
@@ -112,28 +109,25 @@
                   <Group type="102" alignment="1" attributes="0">
                       <Group type="103" groupAlignment="3" attributes="0">
                           <Component id="filterLabel" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="idZakaznikaLabel" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="idTextField" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="editaciaLabel" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="1" attributes="0">
                           <Component id="priezviskoTextField" min="-2" max="-2" attributes="0"/>
-                          <Group type="103" groupAlignment="3" attributes="0">
-                              <Component id="hladajPriezviskoButton" alignment="3" min="-2" max="-2" attributes="0"/>
-                              <Group type="102" alignment="1" attributes="0">
-                                  <Group type="103" groupAlignment="3" attributes="0">
-                                      <Component id="poznamkaLabel" alignment="3" max="32767" attributes="0"/>
-                                      <Component id="poznamkaTextField" alignment="3" min="-2" max="-2" attributes="0"/>
-                                  </Group>
-                                  <EmptySpace min="-2" pref="3" max="-2" attributes="0"/>
+                          <Group type="102" alignment="1" attributes="0">
+                              <Group type="103" groupAlignment="3" attributes="0">
+                                  <Component id="poznamkaLabel" alignment="3" max="32767" attributes="0"/>
+                                  <Component id="poznamkaTextField" alignment="3" min="-2" max="-2" attributes="0"/>
                               </Group>
+                              <EmptySpace min="-2" pref="3" max="-2" attributes="0"/>
                           </Group>
+                          <Component id="hladajPriezviskoButton" alignment="0" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace type="separate" max="-2" attributes="0"/>
                       <Component id="telefonFilterTextField" min="-2" max="-2" attributes="0"/>
                   </Group>
               </Group>
-              <EmptySpace pref="12" max="32767" attributes="0"/>
+              <EmptySpace pref="18" max="32767" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
                   <Component id="editButton" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="vymazButton" alignment="3" min="-2" max="-2" attributes="0"/>
@@ -157,6 +151,9 @@
               <Connection code="new ZakazniciTableModel()" type="code"/>
             </Property>
           </Properties>
+          <Events>
+            <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="zakaznikTableMouseClicked"/>
+          </Events>
         </Component>
       </SubComponents>
     </Container>
@@ -243,14 +240,7 @@
     <Component class="javax.swing.JLabel" name="editaciaLabel">
       <Properties>
         <Property name="horizontalAlignment" type="int" value="0"/>
-        <Property name="text" type="java.lang.String" value="Edit&#xe1;cia/Zmazanie pod&#x13e;a ID. ID mus&#xed; by&#x165; vyplnen&#xe9;."/>
-      </Properties>
-    </Component>
-    <Component class="javax.swing.JTextField" name="idTextField">
-    </Component>
-    <Component class="javax.swing.JLabel" name="idZakaznikaLabel">
-      <Properties>
-        <Property name="text" type="java.lang.String" value="*ID Z&#xe1;kazn&#xed;ka :"/>
+        <Property name="text" type="java.lang.String" value="Edit&#xe1;cia/Zmazanie pod&#x13e;a v&#xfd;beru v tabu&#x13e;ke"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JLabel" name="poznamkaLabel">
