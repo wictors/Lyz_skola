@@ -8,6 +8,7 @@ public class VynimkaObsadenostDialog extends javax.swing.JDialog {
     public VynimkaObsadenostDialog(java.awt.Frame parent, boolean modal) {
         super(parent, modal);
         initComponents();
+        
     }
 
     /**
