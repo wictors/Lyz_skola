@@ -18,16 +18,13 @@ public class NespravneUdajeDialog extends javax.swing.JDialog {
 
         hlaskaLabel = new javax.swing.JLabel();
         okButton = new javax.swing.JButton();
-        jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setPreferredSize(new java.awt.Dimension(300, 200));
         setResizable(false);
-        getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         hlaskaLabel.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         hlaskaLabel.setText("!!! Boli zadané nesprávne údaje !!!");
-        getContentPane().add(hlaskaLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 10, 220, -1));
 
         okButton.setBackground(javax.swing.UIManager.getDefaults().getColor("Button.disabledForeground"));
         okButton.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
@@ -38,10 +35,30 @@ public class NespravneUdajeDialog extends javax.swing.JDialog {
                 okButtonActionPerformed(evt);
             }
         });
-        getContentPane().add(okButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 120, -1, -1));
 
-        jLabel1.setIcon(new javax.swing.ImageIcon("C:\\Users\\Silvia\\Desktop\\obrazky NETBeans\\nespravne_udaje_uprava.jpg")); // NOI18N
-        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 290, 180));
+        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
+        getContentPane().setLayout(layout);
+        layout.setHorizontalGroup(
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(layout.createSequentialGroup()
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(32, 32, 32)
+                        .addComponent(hlaskaLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 220, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(119, 119, 119)
+                        .addComponent(okButton)))
+                .addContainerGap())
+        );
+        layout.setVerticalGroup(
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(layout.createSequentialGroup()
+                .addGap(51, 51, 51)
+                .addComponent(hlaskaLabel)
+                .addGap(18, 18, 18)
+                .addComponent(okButton)
+                .addContainerGap(36, Short.MAX_VALUE))
+        );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -54,7 +71,6 @@ public class NespravneUdajeDialog extends javax.swing.JDialog {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel hlaskaLabel;
-    private javax.swing.JLabel jLabel1;
     private javax.swing.JButton okButton;
     // End of variables declaration//GEN-END:variables
 }

@@ -1,7 +1,6 @@
 package sk.upjs.ics.lyz_skola;
 
 import java.sql.Time;
-import java.util.Date;
 
 public class Hodina {
 

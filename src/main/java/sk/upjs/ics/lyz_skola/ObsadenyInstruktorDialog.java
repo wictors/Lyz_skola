@@ -1,11 +1,20 @@
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
 package sk.upjs.ics.lyz_skola;
 
-public class ObsadenyZakaznikDialog extends javax.swing.JDialog {
+/**
+ *
+ * @author Hej urcite
+ */
+public class ObsadenyInstruktorDialog extends javax.swing.JDialog {
 
     /**
-     * Creates new form ObsadenyZakaznikDialog
+     * Creates new form ObsadenyInstruktorDialog
      */
-    public ObsadenyZakaznikDialog(java.awt.Frame parent, boolean modal) {
+    public ObsadenyInstruktorDialog(java.awt.Frame parent, boolean modal) {
         super(parent, modal);
         initComponents();
     }
@@ -34,7 +43,7 @@ public class ObsadenyZakaznikDialog extends javax.swing.JDialog {
         });
 
         jLabel1.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        jLabel1.setText("Zvolený zákazník je nahlásený na hodiny.");
+        jLabel1.setText("Zvolený inštruktor je nahlásený na hodiny.");
 
         jLabel2.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jLabel2.setText("Ak ho chcete vymazať, vymažte hodiny.");
@@ -44,27 +53,29 @@ public class ObsadenyZakaznikDialog extends javax.swing.JDialog {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jLabel2)
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addGroup(layout.createSequentialGroup()
-                            .addGap(162, 162, 162)
-                            .addComponent(okButton))
-                        .addGroup(layout.createSequentialGroup()
-                            .addGap(73, 73, 73)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(166, 166, 166)
+                        .addComponent(okButton))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(69, 69, 69)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(10, 10, 10)
+                                .addComponent(jLabel2))
                             .addComponent(jLabel1))))
-                .addContainerGap(76, Short.MAX_VALUE))
+                .addContainerGap(69, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(37, 37, 37)
+                .addGap(29, 29, 29)
                 .addComponent(jLabel1)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLabel2)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 31, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 38, Short.MAX_VALUE)
                 .addComponent(okButton)
-                .addGap(23, 23, 23))
+                .addGap(24, 24, 24))
         );
 
         pack();
@@ -75,6 +86,7 @@ public class ObsadenyZakaznikDialog extends javax.swing.JDialog {
         dispose();
     }//GEN-LAST:event_okButtonActionPerformed
 
+    
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel jLabel1;

@@ -26,6 +26,7 @@ public class PrihlasenieForm extends javax.swing.JFrame {
         jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setLocation(new java.awt.Point(300, 150));
         setResizable(false);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
         getContentPane().add(emailTextField, new org.netbeans.lib.awtextra.AbsoluteConstraints(244, 56, 160, -1));
@@ -69,7 +70,7 @@ public class PrihlasenieForm extends javax.swing.JFrame {
 
     private void prihlasitButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_prihlasitButtonActionPerformed
         if(!emailTextField.getText().equals(" ")){
-            Instruktor instruktor = instruktorDao.podlaEmail(emailTextField.getText());
+            Instruktor instruktor = instruktorDao.podlaEmailu(emailTextField.getText());
             if(instruktor != null){
                 String vstupneHeslo = hesloTextField.getText();
                 String heslo = instruktor.getHeslo();

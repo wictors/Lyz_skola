@@ -50,9 +50,9 @@ public class MysqlInstruktorDao implements InstruktorDao {
     @Override
     public void pridajInstruktora(Instruktor instruktor) {
         jdbcTemplate.update("INSERT INTO instruktor(meno, priezvisko, email,"
-                + "akreditacia, typ, heslo, sol) VALUES(?,?,?,?,?,?,?)", instruktor.getMeno(),
+                + "akreditacia, typ, heslo) VALUES(?,?,?,?,?,?)", instruktor.getMeno(),
                 instruktor.getPriezvisko(), instruktor.getEmail(), instruktor.getAkreditacia(),
-                instruktor.getTyp(), instruktor.getHeslo(), instruktor.getSol());
+                instruktor.getTyp(), instruktor.getHeslo());
     }
 
     @Override
@@ -62,7 +62,7 @@ public class MysqlInstruktorDao implements InstruktorDao {
     }
 
     @Override
-    public Instruktor podlaEmail(String email) {
+    public Instruktor podlaEmailu(String email) {
         String sql = "SELECT * FROM instruktor WHERE email = ?";
         BeanPropertyRowMapper<Instruktor> mapper = BeanPropertyRowMapper.newInstance(Instruktor.class);      
         List<Instruktor> instruktori = jdbcTemplate.query(sql,mapper, email);
@@ -72,6 +72,29 @@ public class MysqlInstruktorDao implements InstruktorDao {
             Instruktor instruktor = instruktori.get(0);
             return instruktor;    
         }        
+    }
+
+    @Override
+    public boolean nemaHodinu(Long id) {
+        String sql = "SELECT count(*) FROM hodina WHERE instruktor = ?";
+        Long pocet = jdbcTemplate.queryForObject(sql,Long.class,id);
+        if(pocet == 0L){
+            return true;
+        }else{
+            return false;
+        }
+    }
+
+    @Override
+    public void aktualizujAkreditaciu(Long id, String akreditacia) {
+        String sql = "UPDATE instruktor SET akreditacia = ? WHERE id = ?";
+        jdbcTemplate.update(sql,akreditacia,id);
+    }
+
+    @Override
+    public void aktualizujTyp(Long id, String typ) {
+        String sql = "UPDATE instruktor SET typ = ? WHERE id = ?";
+        jdbcTemplate.update(sql,typ,id);       
     }
     
 }

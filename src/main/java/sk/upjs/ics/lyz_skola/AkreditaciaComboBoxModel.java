@@ -1,6 +1,5 @@
 package sk.upjs.ics.lyz_skola;
 
-import java.util.List;
 import javax.swing.DefaultComboBoxModel;
 
 public class AkreditaciaComboBoxModel extends DefaultComboBoxModel<String> {

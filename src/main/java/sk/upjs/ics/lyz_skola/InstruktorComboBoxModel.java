@@ -1,7 +1,6 @@
 package sk.upjs.ics.lyz_skola;
 
 import java.util.List;
-import javax.swing.ComboBoxModel;
 import javax.swing.DefaultComboBoxModel;
 
 public class InstruktorComboBoxModel extends DefaultComboBoxModel<Instruktor> {

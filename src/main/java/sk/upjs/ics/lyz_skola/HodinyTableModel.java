@@ -70,6 +70,10 @@ public class HodinyTableModel extends AbstractTableModel {
         return super.getColumnClass(columnIndex);
     }
     
+    public Hodina vratHodinu(int row){
+        return hodinaDao.podlaDatumu(datum).get(row);
+    }
+    
     
     
     void aktualizovat(String nastavenyDatum){

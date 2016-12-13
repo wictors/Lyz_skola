@@ -57,6 +57,24 @@ public class MysqlHodinaDao implements HodinaDao {
         return jdbcTemplate.queryForObject(sql,Long.class);
     }
     
+    @Override
+    public void vymazHodinu(Long id) {
+        String sql = "DELETE FROM hodina WHERE id = ?";
+        jdbcTemplate.update(sql,id);
+    }    
+
+    @Override
+    public void zmenaStavu(Hodina hodina) {
+        String sql = "UPDATE hodina SET stav = ? WHERE id = ?";
+        jdbcTemplate.update(sql,hodina.isStav(),hodina.getId());
+    }
+
+    @Override
+    public Long oduceneInstruktHodiny(Instruktor instruktor) {
+        String sql = "SELECT count(*) FROM hodina WHERE instruktor = ? and stav = 1";
+        return jdbcTemplate.queryForObject(sql, Long.class,instruktor.getId());
+    }
+    
     private class ObsadenostRowMapper implements RowMapper<Long>{
 
         @Override

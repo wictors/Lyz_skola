@@ -9,16 +9,6 @@ public class Instruktor {
     private String akreditacia;
     private String typ;
     private String heslo;
-    private String sol;
-
-    public String getSol() {
-        return sol;
-    }
-
-    public void setSol(String sol) {
-        this.sol = sol;
-    }
-    
 
     public String getTyp() {
         return typ;

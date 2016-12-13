@@ -4,23 +4,13 @@ import org.springframework.security.crypto.bcrypt.BCrypt;
 
 public class PridatInstruktoraDialog extends javax.swing.JDialog {
 
-    //private Instruktor instruktor;
     
     private InstruktorDao instruktorDao = ObjectFactory.INSTANCE.getInstruktorDao();
     
     
-    /**
-     * Creates new form pridatInstruktoraForm
-     */
     public PridatInstruktoraDialog(java.awt.Frame parent, boolean modal) {
         super(parent, modal);
         initComponents();
-        //menoTextField.setText(instruktor.getMeno());
-        //priezviskoTextField.setText(instruktor.getPriezvisko());
-        //emailTextField.setText(instruktor.getEmail());
-        //akreditaciaTextField.setText(instruktor.getAkreditacia());
-        //typTextField.setText(instruktor.getTyp());
-        //hesloTextField.setText(instruktor.getHeslo());
     }
 
     /**
@@ -64,12 +54,6 @@ public class PridatInstruktoraDialog extends javax.swing.JDialog {
         okButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 okButtonActionPerformed(evt);
-            }
-        });
-
-        menoTextField.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                menoTextFieldActionPerformed(evt);
             }
         });
 
@@ -148,60 +132,10 @@ public class PridatInstruktoraDialog extends javax.swing.JDialog {
         String sol = BCrypt.gensalt();
         String hashHeslo = BCrypt.hashpw(heslo, sol);
         instruktor.setHeslo(hashHeslo);
-        instruktor.setSol(sol);
         instruktorDao.pridajInstruktora(instruktor);
         setVisible(false);
         dispose();
     }//GEN-LAST:event_okButtonActionPerformed
-
-    private void menoTextFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menoTextFieldActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_menoTextFieldActionPerformed
-
-    /**
-     * @param args the command line arguments
-     */
-    public static void main(String args[]) {
-        /* Set the Nimbus look and feel */
-        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
-         */
-        try {
-            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Windows".equals(info.getName())) {
-                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
-                    break;
-                }
-            }
-        } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(PridatInstruktoraDialog.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(PridatInstruktoraDialog.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(PridatInstruktoraDialog.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(PridatInstruktoraDialog.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        }
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-
-        /* Create and display the dialog */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                PridatInstruktoraDialog dialog = new PridatInstruktoraDialog(new javax.swing.JFrame(), true);
-                dialog.addWindowListener(new java.awt.event.WindowAdapter() {
-                    @Override
-                    public void windowClosing(java.awt.event.WindowEvent e) {
-                        System.exit(0);
-                    }
-                });
-                dialog.setVisible(true);
-            }
-        });
-    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel akreditaciaLabel;

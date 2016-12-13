@@ -8,7 +8,7 @@ public class ZakazniciTableModel extends AbstractTableModel {
     
     private ZakaznikDao zakaznikDao = ObjectFactory.INSTANCE.getZakaznikDao();
     
-    private static final String[] NAZVY_STLPCOV = { "ID", "Meno", "Priezvisko", "Poznamka", "Telefon", "Email", };
+    private static final String[] NAZVY_STLPCOV = { "ID", "Meno", "Priezvisko", "Poznamka", "Telefon", "Email"};
     
     private static final int POCET_STLPCOV = NAZVY_STLPCOV.length;
     

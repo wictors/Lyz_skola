@@ -59,6 +59,8 @@ public class InstruktoriTableModel extends AbstractTableModel {
                     return "Žiadny";
                 }
                 return typ;
+            case 5:
+                return instruktor.getId();
             default:
                 return "???";
         }
