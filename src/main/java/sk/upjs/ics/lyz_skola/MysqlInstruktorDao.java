@@ -50,15 +50,28 @@ public class MysqlInstruktorDao implements InstruktorDao {
     @Override
     public void pridajInstruktora(Instruktor instruktor) {
         jdbcTemplate.update("INSERT INTO instruktor(meno, priezvisko, email,"
-                + "akreditacia, typ, heslo) VALUES(?,?,?,?,?,?)", instruktor.getMeno(),
+                + "akreditacia, typ, heslo, sol) VALUES(?,?,?,?,?,?,?)", instruktor.getMeno(),
                 instruktor.getPriezvisko(), instruktor.getEmail(), instruktor.getAkreditacia(),
-                instruktor.getTyp(), instruktor.getHeslo());
+                instruktor.getTyp(), instruktor.getHeslo(), instruktor.getSol());
     }
 
     @Override
     public void vymazInstruktora(Long id) {
         String sql = "DELETE FROM instruktor WHERE id = ?";
         jdbcTemplate.update(sql,id);
+    }
+
+    @Override
+    public Instruktor podlaEmail(String email) {
+        String sql = "SELECT * FROM instruktor WHERE email = ?";
+        BeanPropertyRowMapper<Instruktor> mapper = BeanPropertyRowMapper.newInstance(Instruktor.class);      
+        List<Instruktor> instruktori = jdbcTemplate.query(sql,mapper, email);
+        if(instruktori.isEmpty()){
+            return null;
+        }else{
+            Instruktor instruktor = instruktori.get(0);
+            return instruktor;    
+        }        
     }
     
 }

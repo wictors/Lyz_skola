@@ -10,6 +10,7 @@ public enum ObjectFactory {
     private HodinaDao hodinaDao;
     private InstruktorDao instruktorDao;
     private ZakaznikDao zakaznikDao;
+    private PrihlasenieDao prihlasenieDao;
     
     
     public JdbcTemplate getJdbcTemplate() {
@@ -42,6 +43,13 @@ public enum ObjectFactory {
             zakaznikDao = new MysqlZakaznikDao(getJdbcTemplate());
         }
         return zakaznikDao;
+    }
+    
+    public PrihlasenieDao getPrihlasenieDao(){
+        if(prihlasenieDao == null){
+            prihlasenieDao = new MySqlPrihlasenieDao(getJdbcTemplate());
+        }
+        return prihlasenieDao;
     }
     
 }

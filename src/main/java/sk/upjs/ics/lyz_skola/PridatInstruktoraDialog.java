@@ -1,14 +1,7 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package sk.upjs.ics.lyz_skola;
 
-/**
- *
- * @author Hej urcite
- */
+import org.springframework.security.crypto.bcrypt.BCrypt;
+
 public class PridatInstruktoraDialog extends javax.swing.JDialog {
 
     //private Instruktor instruktor;
@@ -151,7 +144,11 @@ public class PridatInstruktoraDialog extends javax.swing.JDialog {
         instruktor.setEmail(emailTextField.getText());
         instruktor.setAkreditacia(akreditaciaTextField.getText());
         instruktor.setTyp(typTextField.getText());
-        instruktor.setHeslo(hesloTextField.getText());
+        String heslo = hesloTextField.getText();
+        String sol = BCrypt.gensalt();
+        String hashHeslo = BCrypt.hashpw(heslo, sol);
+        instruktor.setHeslo(hashHeslo);
+        instruktor.setSol(sol);
         instruktorDao.pridajInstruktora(instruktor);
         setVisible(false);
         dispose();

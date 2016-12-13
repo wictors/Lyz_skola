@@ -19,6 +19,7 @@ public class HodinyTableModel extends AbstractTableModel {
     
     private String datum;
     
+    
     @Override
     public int getRowCount() {
         return hodinaDao.podlaDatumu(datum).size();
