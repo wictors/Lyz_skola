@@ -12,6 +12,8 @@ import sun.swing.table.DefaultTableCellHeaderRenderer;
 public class UvodnyPanelForm extends javax.swing.JFrame {
     
     private String nastavenyDatum;
+    private Long id = -1L;
+    private HodinaDao hodinaDao = ObjectFactory.INSTANCE.getHodinaDao();
 
     public UvodnyPanelForm() {
         initComponents();
@@ -57,23 +59,18 @@ public class UvodnyPanelForm extends javax.swing.JFrame {
         vyucbaButton = new javax.swing.JButton();
         instruktoriButton = new javax.swing.JButton();
         zakazniciButton = new javax.swing.JButton();
-        jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setFocusCycleRoot(false);
         setLocation(new java.awt.Point(308, 204));
         setLocationByPlatform(true);
         setMinimumSize(new java.awt.Dimension(780, 400));
-        setPreferredSize(new java.awt.Dimension(780, 400));
         setResizable(false);
         setSize(new java.awt.Dimension(780, 400));
-        getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         hodinyTable.setModel(new HodinyTableModel());
         hodinyTable.setOpaque(false);
         jScrollPane1.setViewportView(hodinyTable);
-
-        getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 30, 491, 322));
 
         datumButton.setText("Nastavit");
         datumButton.addActionListener(new java.awt.event.ActionListener() {
@@ -81,17 +78,14 @@ public class UvodnyPanelForm extends javax.swing.JFrame {
                 datumButtonActionPerformed(evt);
             }
         });
-        getContentPane().add(datumButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 300, 93, -1));
 
         datumTextField.setText("Vloz datum");
-        getContentPane().add(datumTextField, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 300, 100, -1));
 
         formatDatumuLabel.setBackground(java.awt.Color.darkGray);
         formatDatumuLabel.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         formatDatumuLabel.setForeground(new java.awt.Color(255, 0, 0));
         formatDatumuLabel.setText("\"yyyy-MM-dd\"");
         formatDatumuLabel.setOpaque(true);
-        getContentPane().add(formatDatumuLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 330, 100, -1));
 
         vyucbaButton.setText("Výučba");
         vyucbaButton.addActionListener(new java.awt.event.ActionListener() {
@@ -99,7 +93,6 @@ public class UvodnyPanelForm extends javax.swing.JFrame {
                 vyucbaButtonActionPerformed(evt);
             }
         });
-        getContentPane().add(vyucbaButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 60, 93, -1));
 
         instruktoriButton.setText("Inštruktori");
         instruktoriButton.addActionListener(new java.awt.event.ActionListener() {
@@ -107,7 +100,6 @@ public class UvodnyPanelForm extends javax.swing.JFrame {
                 instruktoriButtonActionPerformed(evt);
             }
         });
-        getContentPane().add(instruktoriButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 101, 93, -1));
 
         zakazniciButton.setText("Zákazníci");
         zakazniciButton.addActionListener(new java.awt.event.ActionListener() {
@@ -115,11 +107,45 @@ public class UvodnyPanelForm extends javax.swing.JFrame {
                 zakazniciButtonActionPerformed(evt);
             }
         });
-        getContentPane().add(zakazniciButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 142, 93, -1));
 
-        jLabel1.setIcon(new javax.swing.ImageIcon("C:\\Users\\Silvia\\Desktop\\obrazky NETBeans\\uvodny_uprava.jpg")); // NOI18N
-        jLabel1.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
-        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 780, 400));
+        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
+        getContentPane().setLayout(layout);
+        layout.setHorizontalGroup(
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(layout.createSequentialGroup()
+                .addGap(10, 10, 10)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(vyucbaButton, javax.swing.GroupLayout.PREFERRED_SIZE, 93, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(instruktoriButton, javax.swing.GroupLayout.PREFERRED_SIZE, 93, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(zakazniciButton, javax.swing.GroupLayout.PREFERRED_SIZE, 93, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(datumButton, javax.swing.GroupLayout.PREFERRED_SIZE, 93, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(17, 17, 17)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(datumTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(formatDatumuLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(20, 20, 20)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 491, javax.swing.GroupLayout.PREFERRED_SIZE))
+        );
+        layout.setVerticalGroup(
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(layout.createSequentialGroup()
+                .addGap(60, 60, 60)
+                .addComponent(vyucbaButton)
+                .addGap(18, 18, 18)
+                .addComponent(instruktoriButton)
+                .addGap(18, 18, 18)
+                .addComponent(zakazniciButton)
+                .addGap(135, 135, 135)
+                .addComponent(datumButton))
+            .addGroup(layout.createSequentialGroup()
+                .addGap(300, 300, 300)
+                .addComponent(datumTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(10, 10, 10)
+                .addComponent(formatDatumuLabel))
+            .addGroup(layout.createSequentialGroup()
+                .addGap(30, 30, 30)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 322, javax.swing.GroupLayout.PREFERRED_SIZE))
+        );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -155,7 +181,9 @@ public class UvodnyPanelForm extends javax.swing.JFrame {
     }//GEN-LAST:event_vyucbaButtonActionPerformed
 
     private void instruktoriButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_instruktoriButtonActionPerformed
-        // TODO add your handling code here:
+        this.setVisible(false);
+        InstruktoriForm instruktoriForm = new InstruktoriForm(this);
+        instruktoriForm.setVisible(true);
     }//GEN-LAST:event_instruktoriButtonActionPerformed
 
     private void zakazniciButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_zakazniciButtonActionPerformed
@@ -171,7 +199,6 @@ public class UvodnyPanelForm extends javax.swing.JFrame {
     private javax.swing.JLabel formatDatumuLabel;
     private javax.swing.JTable hodinyTable;
     private javax.swing.JButton instruktoriButton;
-    private javax.swing.JLabel jLabel1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JButton vyucbaButton;
     private javax.swing.JButton zakazniciButton;
