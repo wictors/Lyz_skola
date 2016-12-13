@@ -50,18 +50,13 @@ public class InstruktoriForm extends javax.swing.JFrame {
         vypisPodlaPriezviskaButton = new javax.swing.JButton();
         priezviskoTextField = new javax.swing.JTextField();
         zadajPriezviskoLabel = new javax.swing.JLabel();
-        jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setForeground(java.awt.Color.white);
         setPreferredSize(new java.awt.Dimension(849, 360));
-        getContentPane().setLayout(null);
 
         instruktoriTable.setModel(new InstruktoriTableModel());
         jScrollPane1.setViewportView(instruktoriTable);
-
-        getContentPane().add(jScrollPane1);
-        jScrollPane1.setBounds(380, 33, 450, 400);
 
         spatButton.setBackground(new java.awt.Color(0, 0, 255));
         spatButton.setForeground(new java.awt.Color(255, 255, 255));
@@ -71,8 +66,6 @@ public class InstruktoriForm extends javax.swing.JFrame {
                 spatButtonActionPerformed(evt);
             }
         });
-        getContentPane().add(spatButton);
-        spatButton.setBounds(10, 400, 95, 23);
 
         zoradPodlaPriezviskaButton.setBackground(new java.awt.Color(0, 0, 255));
         zoradPodlaPriezviskaButton.setForeground(new java.awt.Color(255, 255, 255));
@@ -82,12 +75,8 @@ public class InstruktoriForm extends javax.swing.JFrame {
                 zoradPodlaPriezviskaButtonActionPerformed(evt);
             }
         });
-        getContentPane().add(zoradPodlaPriezviskaButton);
-        zoradPodlaPriezviskaButton.setBounds(110, 270, 143, 23);
 
         zadajAkreditaciuLabel.setText("Zadaj akreditáciu:");
-        getContentPane().add(zadajAkreditaciuLabel);
-        zadajAkreditaciuLabel.setBounds(10, 20, 86, 23);
 
         vypisPodlaAkreditacieButton.setBackground(new java.awt.Color(0, 0, 255));
         vypisPodlaAkreditacieButton.setForeground(new java.awt.Color(255, 255, 255));
@@ -97,12 +86,8 @@ public class InstruktoriForm extends javax.swing.JFrame {
                 vypisPodlaAkreditacieButtonActionPerformed(evt);
             }
         });
-        getContentPane().add(vypisPodlaAkreditacieButton);
-        vypisPodlaAkreditacieButton.setBounds(110, 50, 143, 23);
 
         zadajTypLabel.setText("            Zadaj typ:");
-        getContentPane().add(zadajTypLabel);
-        zadajTypLabel.setBounds(10, 90, 600, 14);
 
         vypisPodlaTypuButton.setBackground(new java.awt.Color(0, 0, 255));
         vypisPodlaTypuButton.setForeground(new java.awt.Color(255, 255, 255));
@@ -112,31 +97,21 @@ public class InstruktoriForm extends javax.swing.JFrame {
                 vypisPodlaTypuButtonActionPerformed(evt);
             }
         });
-        getContentPane().add(vypisPodlaTypuButton);
-        vypisPodlaTypuButton.setBounds(110, 130, 143, 23);
 
-        pridatInstruktoraButton.setBackground(new java.awt.Color(0, 0, 255));
-        pridatInstruktoraButton.setForeground(new java.awt.Color(255, 255, 255));
         pridatInstruktoraButton.setText("Pridaj inštruktora");
         pridatInstruktoraButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 pridatInstruktoraButtonActionPerformed(evt);
             }
         });
-        getContentPane().add(pridatInstruktoraButton);
-        pridatInstruktoraButton.setBounds(180, 400, 169, 23);
 
         akreditaciaComboBox.setBackground(new java.awt.Color(0, 0, 255));
         akreditaciaComboBox.setForeground(new java.awt.Color(255, 255, 255));
         akreditaciaComboBox.setModel(new AkreditaciaComboBoxModel());
-        getContentPane().add(akreditaciaComboBox);
-        akreditaciaComboBox.setBounds(110, 20, 143, 20);
 
         typComboBox.setBackground(new java.awt.Color(0, 0, 255));
         typComboBox.setForeground(new java.awt.Color(255, 255, 255));
         typComboBox.setModel(new TypComboBoxModel());
-        getContentPane().add(typComboBox);
-        typComboBox.setBounds(110, 90, 143, 23);
 
         vypisPodlaPriezviskaButton.setBackground(new java.awt.Color(0, 0, 255));
         vypisPodlaPriezviskaButton.setForeground(new java.awt.Color(255, 255, 255));
@@ -146,8 +121,6 @@ public class InstruktoriForm extends javax.swing.JFrame {
                 vypisPodlaPriezviskaButtonActionPerformed(evt);
             }
         });
-        getContentPane().add(vypisPodlaPriezviskaButton);
-        vypisPodlaPriezviskaButton.setBounds(110, 210, 143, 23);
 
         priezviskoTextField.setBackground(new java.awt.Color(0, 0, 255));
         priezviskoTextField.setForeground(new java.awt.Color(255, 255, 255));
@@ -157,16 +130,92 @@ public class InstruktoriForm extends javax.swing.JFrame {
                 priezviskoTextFieldActionPerformed(evt);
             }
         });
-        getContentPane().add(priezviskoTextField);
-        priezviskoTextField.setBounds(110, 170, 143, 30);
 
         zadajPriezviskoLabel.setText("  Zadaj priezvisko:");
-        getContentPane().add(zadajPriezviskoLabel);
-        zadajPriezviskoLabel.setBounds(10, 170, 87, 23);
 
-        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/sk/upjs/ics/lyz_skola/backround/obr_2.jpeg"))); // NOI18N
-        getContentPane().add(jLabel1);
-        jLabel1.setBounds(0, 0, 850, 460);
+        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
+        getContentPane().setLayout(layout);
+        layout.setHorizontalGroup(
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(layout.createSequentialGroup()
+                .addGap(110, 110, 110)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(vypisPodlaAkreditacieButton)
+                    .addComponent(vypisPodlaPriezviskaButton, javax.swing.GroupLayout.PREFERRED_SIZE, 143, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(127, 127, 127)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 450, javax.swing.GroupLayout.PREFERRED_SIZE))
+            .addGroup(layout.createSequentialGroup()
+                .addGap(10, 10, 10)
+                .addComponent(spatButton, javax.swing.GroupLayout.PREFERRED_SIZE, 95, javax.swing.GroupLayout.PREFERRED_SIZE))
+            .addGroup(layout.createSequentialGroup()
+                .addGap(110, 110, 110)
+                .addComponent(vypisPodlaTypuButton, javax.swing.GroupLayout.PREFERRED_SIZE, 143, javax.swing.GroupLayout.PREFERRED_SIZE))
+            .addGroup(layout.createSequentialGroup()
+                .addGap(110, 110, 110)
+                .addComponent(akreditaciaComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, 143, javax.swing.GroupLayout.PREFERRED_SIZE))
+            .addGroup(layout.createSequentialGroup()
+                .addGap(110, 110, 110)
+                .addComponent(typComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, 143, javax.swing.GroupLayout.PREFERRED_SIZE))
+            .addGroup(layout.createSequentialGroup()
+                .addGap(10, 10, 10)
+                .addComponent(zadajTypLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 600, javax.swing.GroupLayout.PREFERRED_SIZE))
+            .addGroup(layout.createSequentialGroup()
+                .addGap(180, 180, 180)
+                .addComponent(pridatInstruktoraButton, javax.swing.GroupLayout.PREFERRED_SIZE, 169, javax.swing.GroupLayout.PREFERRED_SIZE))
+            .addGroup(layout.createSequentialGroup()
+                .addGap(110, 110, 110)
+                .addComponent(priezviskoTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 143, javax.swing.GroupLayout.PREFERRED_SIZE))
+            .addGroup(layout.createSequentialGroup()
+                .addGap(10, 10, 10)
+                .addComponent(zadajPriezviskoLabel))
+            .addGroup(layout.createSequentialGroup()
+                .addGap(110, 110, 110)
+                .addComponent(zoradPodlaPriezviskaButton))
+            .addGroup(layout.createSequentialGroup()
+                .addGap(10, 10, 10)
+                .addComponent(zadajAkreditaciuLabel))
+        );
+        layout.setVerticalGroup(
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(layout.createSequentialGroup()
+                .addGap(50, 50, 50)
+                .addComponent(vypisPodlaAkreditacieButton)
+                .addGap(137, 137, 137)
+                .addComponent(vypisPodlaPriezviskaButton))
+            .addGroup(layout.createSequentialGroup()
+                .addGap(33, 33, 33)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 400, javax.swing.GroupLayout.PREFERRED_SIZE))
+            .addGroup(layout.createSequentialGroup()
+                .addGap(400, 400, 400)
+                .addComponent(spatButton))
+            .addGroup(layout.createSequentialGroup()
+                .addGap(130, 130, 130)
+                .addComponent(vypisPodlaTypuButton))
+            .addGroup(layout.createSequentialGroup()
+                .addGap(20, 20, 20)
+                .addComponent(akreditaciaComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+            .addGroup(layout.createSequentialGroup()
+                .addGap(90, 90, 90)
+                .addComponent(typComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE))
+            .addGroup(layout.createSequentialGroup()
+                .addGap(90, 90, 90)
+                .addComponent(zadajTypLabel))
+            .addGroup(layout.createSequentialGroup()
+                .addGap(400, 400, 400)
+                .addComponent(pridatInstruktoraButton))
+            .addGroup(layout.createSequentialGroup()
+                .addGap(170, 170, 170)
+                .addComponent(priezviskoTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
+            .addGroup(layout.createSequentialGroup()
+                .addGap(170, 170, 170)
+                .addComponent(zadajPriezviskoLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE))
+            .addGroup(layout.createSequentialGroup()
+                .addGap(270, 270, 270)
+                .addComponent(zoradPodlaPriezviskaButton))
+            .addGroup(layout.createSequentialGroup()
+                .addGap(20, 20, 20)
+                .addComponent(zadajAkreditaciuLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE))
+        );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -253,7 +302,6 @@ public class InstruktoriForm extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JComboBox<String> akreditaciaComboBox;
     private javax.swing.JTable instruktoriTable;
-    private javax.swing.JLabel jLabel1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JButton pridatInstruktoraButton;
     private javax.swing.JTextField priezviskoTextField;
