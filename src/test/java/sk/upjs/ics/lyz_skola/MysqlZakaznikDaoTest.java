@@ -13,10 +13,9 @@ public class MysqlZakaznikDaoTest {
 
     @Test
     public void testDajZakaznikov() {
-        System.out.println("Daj zakaznikov");
         ZakaznikDao zakaznikDao = ObjectFactory.INSTANCE.getZakaznikDao();
         List<Zakaznik> result = zakaznikDao.dajZakaznikov();
-        assertTrue(result.size() > 0);
+        Assert.assertTrue(result.size() > 0);
     }
 
     @Test
@@ -46,13 +45,16 @@ public class MysqlZakaznikDaoTest {
 
     @Test
     public void testPridajZakaznika() {
+        MysqlZakaznikDao dao = new MysqlZakaznikDao(ObjectFactory.INSTANCE.getJdbcTemplate());
+        List<Zakaznik> zakaznici = dao.dajZakaznikov();
         Zakaznik zakaznik = new Zakaznik();
         zakaznik.setMeno("Milan");
         zakaznik.setPriezvisko("Duzda");
         zakaznik.setPoznamka("Zaciatocnik");
-        MysqlZakaznikDao dao = new MysqlZakaznikDao(ObjectFactory.INSTANCE.getJdbcTemplate());
         dao.pridajZakaznika(zakaznik);
-        Assert.assertTrue(true);
+        List<Zakaznik> noviZakaznici = dao.dajZakaznikov();
+        Assert.assertTrue(zakaznici.size() + 1 == noviZakaznici.size());
+        dao.vymazZakaznika(zakaznik.getId());
     }
 
     @Test
@@ -61,8 +63,9 @@ public class MysqlZakaznikDaoTest {
         List<Zakaznik> zakaznici = dao.podlaId(1L);
         Zakaznik zakaznik = zakaznici.get(0);
         String poznamka = zakaznik.getPoznamka();
-        dao.aktualizujPoznamka("Zaciatocnik", 1L);
+        dao.aktualizujPoznamka("Pokrocily", 1L);
         Assert.assertNotEquals(zakaznik, poznamka);
+        dao.aktualizujPoznamka(poznamka, zakaznik.getId());
     }
 
     @Test
@@ -71,30 +74,33 @@ public class MysqlZakaznikDaoTest {
         List<Zakaznik> zakaznici = dao.podlaId(1L);
         Zakaznik zakaznik = zakaznici.get(0);
         int telefon = zakaznik.getTelefon();
-        dao.aktualizujTelefon(948741852, 1L);
+        dao.aktualizujTelefon(944888111, 1L);
         Assert.assertNotEquals(zakaznik, telefon);
+        dao.aktualizujTelefon(telefon, zakaznik.getId());
     }
 
     @Test
     public void testPodlaId() {
         MysqlZakaznikDao dao = new MysqlZakaznikDao(ObjectFactory.INSTANCE.getJdbcTemplate());
         List<Zakaznik> zakaznik = dao.podlaId(1L);
-        assertTrue(zakaznik.size() > 0);
+        Assert.assertTrue(zakaznik.size() > 0);
     }
 
     @Test
     public void testVymazZakaznika() {
         MysqlZakaznikDao dao = new MysqlZakaznikDao(ObjectFactory.INSTANCE.getJdbcTemplate());
-        List<Zakaznik> zakaznici = dao.podlaId(6L);
-        dao.vymazZakaznika(6L);
-        List<Zakaznik> zakaznici1 = dao.podlaId(6L);
-        Assert.assertTrue(zakaznici.size() != zakaznici1.size());
+        List<Zakaznik> zakaznici = dao.podlaId(4L);
+        Zakaznik zakaznik = zakaznici.get(0);
+        dao.vymazZakaznika(4L);
+        List<Zakaznik> zakaznici1 = dao.podlaId(4L);
+        Assert.assertTrue(zakaznici.size() == zakaznici1.size() + 1);
+        dao.pridajZakaznika(zakaznik);
     }
     
     @Test
     public void testNemaHodinu() {
         MysqlZakaznikDao dao = new MysqlZakaznikDao(ObjectFactory.INSTANCE.getJdbcTemplate());
-        dao.nemaHodinu(3L);
-        Assert.assertTrue(true);
+        boolean stav = dao.nemaHodinu(5L);
+        Assert.assertTrue(stav == true);
     }
 }
