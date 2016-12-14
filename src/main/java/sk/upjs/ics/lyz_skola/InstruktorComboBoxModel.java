@@ -1,5 +1,7 @@
 package sk.upjs.ics.lyz_skola;
 
+import Dao.InstruktorDao;
+import Entity.Instruktor;
 import java.util.List;
 import javax.swing.DefaultComboBoxModel;
 

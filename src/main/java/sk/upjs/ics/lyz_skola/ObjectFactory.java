@@ -1,5 +1,13 @@
 package sk.upjs.ics.lyz_skola;
 
+import Dao.MysqlPrihlasenieDao;
+import Dao.MysqlInstruktorDao;
+import Dao.MysqlHodinaDao;
+import Dao.MysqlZakaznikDao;
+import Dao.ZakaznikDao;
+import Dao.PrihlasenieDao;
+import Dao.InstruktorDao;
+import Dao.HodinaDao;
 import com.mysql.cj.jdbc.MysqlDataSource;
 import org.springframework.jdbc.core.JdbcTemplate;
 
@@ -47,7 +55,7 @@ public enum ObjectFactory {
     
     public PrihlasenieDao getPrihlasenieDao(){
         if(prihlasenieDao == null){
-            prihlasenieDao = new MySqlPrihlasenieDao(getJdbcTemplate());
+            prihlasenieDao = new MysqlPrihlasenieDao(getJdbcTemplate());
         }
         return prihlasenieDao;
     }
