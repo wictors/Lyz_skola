@@ -98,5 +98,18 @@ public class MysqlInstruktorDao implements InstruktorDao {
         String sql = "UPDATE instruktor SET typ = ? WHERE id = ?";
         jdbcTemplate.update(sql,typ,id);       
     }
+
+    @Override
+    public Instruktor podlaId(Long id) {
+        String sql = "SELECT * FROM instruktor WHERE id = ?";
+        BeanPropertyRowMapper<Instruktor> mapper = BeanPropertyRowMapper.newInstance(Instruktor.class);      
+        List<Instruktor> instruktori = jdbcTemplate.query(sql,mapper, id);
+        if(instruktori.isEmpty()){
+            return null;
+        }else{
+            Instruktor instruktor = instruktori.get(0);
+            return instruktor;    
+        }        
+    }
     
 }

@@ -60,13 +60,10 @@ public class ZakazniciForm extends javax.swing.JFrame {
         telefonEditTextField = new javax.swing.JTextField();
         editButton = new javax.swing.JButton();
         vymazButton = new javax.swing.JButton();
-        jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setLocation(new java.awt.Point(300, 150));
-        setPreferredSize(new java.awt.Dimension(730, 420));
-        setResizable(false);
-        getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+        setPreferredSize(new java.awt.Dimension(760, 430));
 
         zakaznikTable.setModel(new ZakazniciTableModel());
         zakaznikTable.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -76,15 +73,12 @@ public class ZakazniciForm extends javax.swing.JFrame {
         });
         jScrollPane1.setViewportView(zakaznikTable);
 
-        getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(139, 11, 572, 206));
-
         pridatZakaznikaButton.setText("Pridať Zákazníka");
         pridatZakaznikaButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 pridatZakaznikaButtonActionPerformed(evt);
             }
         });
-        getContentPane().add(pridatZakaznikaButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 32, -1, -1));
 
         spatButton.setText("Späť");
         spatButton.addActionListener(new java.awt.event.ActionListener() {
@@ -92,7 +86,6 @@ public class ZakazniciForm extends javax.swing.JFrame {
                 spatButtonActionPerformed(evt);
             }
         });
-        getContentPane().add(spatButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 73, 111, -1));
 
         podlaPriezviskaButton.setText("Podľa Priezviska");
         podlaPriezviskaButton.addActionListener(new java.awt.event.ActionListener() {
@@ -100,7 +93,6 @@ public class ZakazniciForm extends javax.swing.JFrame {
                 podlaPriezviskaButtonActionPerformed(evt);
             }
         });
-        getContentPane().add(podlaPriezviskaButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 160, -1, -1));
 
         podlaIDButton.setText("Podľa ID");
         podlaIDButton.addActionListener(new java.awt.event.ActionListener() {
@@ -108,18 +100,15 @@ public class ZakazniciForm extends javax.swing.JFrame {
                 podlaIDButtonActionPerformed(evt);
             }
         });
-        getContentPane().add(podlaIDButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 194, 111, -1));
 
         zoraditLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         zoraditLabel.setText("Zoradiť :");
         zoraditLabel.setToolTipText("");
         zoraditLabel.setIconTextGap(6);
-        getContentPane().add(zoraditLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 140, 111, -1));
 
         filterLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         filterLabel.setText("Filter : ");
         filterLabel.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        getContentPane().add(filterLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 267, 111, -1));
 
         priezviskoTextField.setText("Priezvisko");
         priezviskoTextField.setToolTipText("");
@@ -128,7 +117,6 @@ public class ZakazniciForm extends javax.swing.JFrame {
                 priezviskoTextFieldMouseClicked(evt);
             }
         });
-        getContentPane().add(priezviskoTextField, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 290, 111, -1));
 
         telefonFilterTextField.setText("Telefon");
         telefonFilterTextField.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -136,7 +124,6 @@ public class ZakazniciForm extends javax.swing.JFrame {
                 telefonFilterTextFieldMouseClicked(evt);
             }
         });
-        getContentPane().add(telefonFilterTextField, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 328, 111, -1));
 
         hladajPriezviskoButton.setText("Hľadaj");
         hladajPriezviskoButton.addActionListener(new java.awt.event.ActionListener() {
@@ -144,7 +131,6 @@ public class ZakazniciForm extends javax.swing.JFrame {
                 hladajPriezviskoButtonActionPerformed(evt);
             }
         });
-        getContentPane().add(hladajPriezviskoButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(139, 287, -1, -1));
 
         hladajTelefonButton.setText("Hľadaj");
         hladajTelefonButton.addActionListener(new java.awt.event.ActionListener() {
@@ -152,19 +138,13 @@ public class ZakazniciForm extends javax.swing.JFrame {
                 hladajTelefonButtonActionPerformed(evt);
             }
         });
-        getContentPane().add(hladajTelefonButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(139, 325, -1, -1));
 
         editaciaLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         editaciaLabel.setText("Editácia/Zmazanie podľa výberu v tabuľke");
-        getContentPane().add(editaciaLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(381, 267, 330, -1));
 
         poznamkaLabel.setText("Poznámka :");
-        getContentPane().add(poznamkaLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 290, -1, -1));
-        getContentPane().add(poznamkaTextField, new org.netbeans.lib.awtextra.AbsoluteConstraints(473, 287, 238, -1));
 
         telefonLabel.setText("Telefón :");
-        getContentPane().add(telefonLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(412, 329, -1, -1));
-        getContentPane().add(telefonEditTextField, new org.netbeans.lib.awtextra.AbsoluteConstraints(473, 326, 238, -1));
 
         editButton.setText("Editácia");
         editButton.addActionListener(new java.awt.event.ActionListener() {
@@ -172,7 +152,6 @@ public class ZakazniciForm extends javax.swing.JFrame {
                 editButtonActionPerformed(evt);
             }
         });
-        getContentPane().add(editButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(473, 366, -1, -1));
 
         vymazButton.setText("Vymazať Zákazníka");
         vymazButton.addActionListener(new java.awt.event.ActionListener() {
@@ -180,10 +159,108 @@ public class ZakazniciForm extends javax.swing.JFrame {
                 vymazButtonActionPerformed(evt);
             }
         });
-        getContentPane().add(vymazButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 366, -1, -1));
 
-        jLabel1.setIcon(new javax.swing.ImageIcon("C:\\Users\\Silvia\\Desktop\\obrazky NETBeans\\zakaznici.jpg")); // NOI18N
-        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 730, 400));
+        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
+        getContentPane().setLayout(layout);
+        layout.setHorizontalGroup(
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(layout.createSequentialGroup()
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                .addComponent(pridatZakaznikaButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(zoraditLabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(podlaPriezviskaButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(podlaIDButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                            .addComponent(spatButton, javax.swing.GroupLayout.PREFERRED_SIZE, 111, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(18, 18, 18)
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 572, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(10, 10, 10)
+                        .addComponent(filterLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 111, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(260, 260, 260)
+                        .addComponent(editaciaLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 330, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(473, 473, 473)
+                        .addComponent(editButton)
+                        .addGap(18, 18, 18)
+                        .addComponent(vymazButton))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(10, 10, 10)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(priezviskoTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 111, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(18, 18, 18)
+                                .addComponent(hladajPriezviskoButton))
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(telefonFilterTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 111, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(18, 18, 18)
+                                .addComponent(hladajTelefonButton)))
+                        .addGap(196, 196, 196)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                                .addComponent(telefonLabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addGap(18, 18, 18)
+                                .addComponent(telefonEditTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 238, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(poznamkaLabel)
+                                .addGap(18, 18, 18)
+                                .addComponent(poznamkaTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 238, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                .addContainerGap(49, Short.MAX_VALUE))
+        );
+        layout.setVerticalGroup(
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(layout.createSequentialGroup()
+                .addGap(11, 11, 11)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(21, 21, 21)
+                        .addComponent(pridatZakaznikaButton)
+                        .addGap(18, 18, 18)
+                        .addComponent(spatButton)
+                        .addGap(44, 44, 44)
+                        .addComponent(zoraditLabel)
+                        .addGap(6, 6, 6)
+                        .addComponent(podlaPriezviskaButton)
+                        .addGap(11, 11, 11)
+                        .addComponent(podlaIDButton))
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 206, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(50, 50, 50)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(filterLabel)
+                    .addComponent(editaciaLabel))
+                .addGap(6, 6, 6)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(hladajPriezviskoButton)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(3, 3, 3)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(priezviskoTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                .addComponent(poznamkaLabel)
+                                .addComponent(poznamkaTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                .addGap(15, 15, 15)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(3, 3, 3)
+                        .addComponent(telefonFilterTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(hladajTelefonButton)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(1, 1, 1)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(telefonLabel)
+                            .addComponent(telefonEditTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(18, 18, 18)
+                        .addComponent(vymazButton))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(18, 18, 18)
+                        .addComponent(editButton)))
+                .addContainerGap(31, Short.MAX_VALUE))
+        );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -292,7 +369,6 @@ public class ZakazniciForm extends javax.swing.JFrame {
     private javax.swing.JLabel filterLabel;
     private javax.swing.JButton hladajPriezviskoButton;
     private javax.swing.JButton hladajTelefonButton;
-    private javax.swing.JLabel jLabel1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JButton podlaIDButton;
     private javax.swing.JButton podlaPriezviskaButton;

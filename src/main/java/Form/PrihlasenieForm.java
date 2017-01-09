@@ -30,24 +30,18 @@ public class PrihlasenieForm extends javax.swing.JFrame {
         hesloLabel = new javax.swing.JLabel();
         prihlasitButton = new javax.swing.JButton();
         zrusitButton = new javax.swing.JButton();
-        jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setLocation(new java.awt.Point(300, 150));
         setResizable(false);
-        getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-        getContentPane().add(emailTextField, new org.netbeans.lib.awtextra.AbsoluteConstraints(244, 56, 160, -1));
-        getContentPane().add(hesloTextField, new org.netbeans.lib.awtextra.AbsoluteConstraints(244, 94, 160, -1));
 
         emailLabel.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         emailLabel.setForeground(new java.awt.Color(255, 0, 51));
-        emailLabel.setText("Email : ");
-        getContentPane().add(emailLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 60, 82, -1));
+        emailLabel.setText("Email  : ");
 
         hesloLabel.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         hesloLabel.setForeground(new java.awt.Color(255, 0, 0));
-        hesloLabel.setText("Heslo : ");
-        getContentPane().add(hesloLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 100, 80, -1));
+        hesloLabel.setText("Heslo :");
 
         prihlasitButton.setText("Prihlásiť sa");
         prihlasitButton.addActionListener(new java.awt.event.ActionListener() {
@@ -55,7 +49,6 @@ public class PrihlasenieForm extends javax.swing.JFrame {
                 prihlasitButtonActionPerformed(evt);
             }
         });
-        getContentPane().add(prihlasitButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 130, 100, -1));
 
         zrusitButton.setText("Zrušiť");
         zrusitButton.addActionListener(new java.awt.event.ActionListener() {
@@ -63,10 +56,45 @@ public class PrihlasenieForm extends javax.swing.JFrame {
                 zrusitButtonActionPerformed(evt);
             }
         });
-        getContentPane().add(zrusitButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(244, 132, 100, -1));
 
-        jLabel1.setIcon(new javax.swing.ImageIcon("C:\\Users\\Silvia\\Desktop\\obrazky NETBeans\\prihlasenie_uprava.jpg")); // NOI18N
-        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 470, 220));
+        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
+        getContentPane().setLayout(layout);
+        layout.setHorizontalGroup(
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(layout.createSequentialGroup()
+                .addGap(67, 67, 67)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(prihlasitButton, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(zrusitButton, javax.swing.GroupLayout.DEFAULT_SIZE, 101, Short.MAX_VALUE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(emailLabel)
+                            .addComponent(hesloLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 47, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(hesloTextField)
+                            .addComponent(emailTextField, javax.swing.GroupLayout.DEFAULT_SIZE, 160, Short.MAX_VALUE))))
+                .addGap(67, 67, 67))
+        );
+        layout.setVerticalGroup(
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(layout.createSequentialGroup()
+                .addGap(41, 41, 41)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(emailLabel)
+                    .addComponent(emailTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(hesloLabel)
+                    .addComponent(hesloTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(prihlasitButton)
+                    .addComponent(zrusitButton))
+                .addGap(35, 35, 35))
+        );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -146,7 +174,6 @@ public class PrihlasenieForm extends javax.swing.JFrame {
     private javax.swing.JTextField emailTextField;
     private javax.swing.JLabel hesloLabel;
     private javax.swing.JTextField hesloTextField;
-    private javax.swing.JLabel jLabel1;
     private javax.swing.JButton prihlasitButton;
     private javax.swing.JButton zrusitButton;
     // End of variables declaration//GEN-END:variables

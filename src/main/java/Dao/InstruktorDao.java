@@ -12,6 +12,7 @@ public interface InstruktorDao {
     public List<Instruktor> podlaTypu(String typ);
     public boolean nemaHodinu(Long id);
     public Instruktor podlaEmailu(String email);
+    public Instruktor podlaId (Long id);
     public void pridajInstruktora(Instruktor instruktor);
     public void vymazInstruktora(Long id);
     public void aktualizujAkreditaciu(Long id, String akreditacia);
