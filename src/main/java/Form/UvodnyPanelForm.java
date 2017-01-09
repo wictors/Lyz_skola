@@ -60,12 +60,15 @@ public class UvodnyPanelForm extends javax.swing.JFrame {
         formatDatumuLabel = new javax.swing.JLabel();
         zmazatHodinuButton = new javax.swing.JButton();
         prihlaseniaButton = new javax.swing.JButton();
+        jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setBackground(new java.awt.Color(0, 204, 255));
         setForeground(java.awt.Color.red);
         setLocation(new java.awt.Point(300, 150));
+        setPreferredSize(new java.awt.Dimension(810, 500));
         setResizable(false);
+        getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         hodinyTable.setModel(new HodinyTableModel());
         hodinyTable.setOpaque(false);
@@ -76,12 +79,15 @@ public class UvodnyPanelForm extends javax.swing.JFrame {
         });
         jScrollPane1.setViewportView(hodinyTable);
 
+        getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(195, 33, 580, 340));
+
         vyucbaButton.setText("Výučba");
         vyucbaButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 vyucbaButtonActionPerformed(evt);
             }
         });
+        getContentPane().add(vyucbaButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 70, 100, -1));
 
         instruktoriButton.setText("Inštruktori");
         instruktoriButton.addActionListener(new java.awt.event.ActionListener() {
@@ -89,6 +95,7 @@ public class UvodnyPanelForm extends javax.swing.JFrame {
                 instruktoriButtonActionPerformed(evt);
             }
         });
+        getContentPane().add(instruktoriButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 147, 100, -1));
 
         zakazniciButton.setText("Zákazníci");
         zakazniciButton.addActionListener(new java.awt.event.ActionListener() {
@@ -96,6 +103,7 @@ public class UvodnyPanelForm extends javax.swing.JFrame {
                 zakazniciButtonActionPerformed(evt);
             }
         });
+        getContentPane().add(zakazniciButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 224, 100, -1));
 
         datumButton.setText("Dátum");
         datumButton.addActionListener(new java.awt.event.ActionListener() {
@@ -103,6 +111,7 @@ public class UvodnyPanelForm extends javax.swing.JFrame {
                 datumButtonActionPerformed(evt);
             }
         });
+        getContentPane().add(datumButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(195, 391, 100, -1));
 
         vlozDatumTextField.setText("- - Vlozte datum - -");
         vlozDatumTextField.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -110,8 +119,10 @@ public class UvodnyPanelForm extends javax.swing.JFrame {
                 vlozDatumTextFieldMouseClicked(evt);
             }
         });
+        getContentPane().add(vlozDatumTextField, new org.netbeans.lib.awtextra.AbsoluteConstraints(313, 392, 142, -1));
 
         formatDatumuLabel.setText("\"yyyy-MM-dd\"");
+        getContentPane().add(formatDatumuLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(313, 420, 90, -1));
 
         zmazatHodinuButton.setText("Zmazať hodinu");
         zmazatHodinuButton.addActionListener(new java.awt.event.ActionListener() {
@@ -119,6 +130,7 @@ public class UvodnyPanelForm extends javax.swing.JFrame {
                 zmazatHodinuButtonActionPerformed(evt);
             }
         });
+        getContentPane().add(zmazatHodinuButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(633, 391, 142, -1));
 
         prihlaseniaButton.setText("Záznam prihlásení");
         prihlaseniaButton.addActionListener(new java.awt.event.ActionListener() {
@@ -126,58 +138,10 @@ public class UvodnyPanelForm extends javax.swing.JFrame {
                 prihlaseniaButtonActionPerformed(evt);
             }
         });
+        getContentPane().add(prihlaseniaButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(633, 442, 142, -1));
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addGap(40, 40, 40)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(zakazniciButton, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(vyucbaButton, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(instruktoriButton, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 55, Short.MAX_VALUE)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 580, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
-                        .addComponent(datumButton, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(vlozDatumTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 142, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(formatDatumuLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(prihlaseniaButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(zmazatHodinuButton, javax.swing.GroupLayout.DEFAULT_SIZE, 142, Short.MAX_VALUE))))
-                .addGap(40, 40, 40))
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(70, 70, 70)
-                        .addComponent(vyucbaButton)
-                        .addGap(54, 54, 54)
-                        .addComponent(instruktoriButton)
-                        .addGap(54, 54, 54)
-                        .addComponent(zakazniciButton))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(33, 33, 33)
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 340, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(zmazatHodinuButton)
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(vlozDatumTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(datumButton)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(formatDatumuLabel)
-                .addGap(8, 8, 8)
-                .addComponent(prihlaseniaButton)
-                .addContainerGap(35, Short.MAX_VALUE))
-        );
+        jLabel1.setIcon(new javax.swing.ImageIcon("C:\\Users\\Silvia\\Desktop\\obrazky NETBeans\\uvodnyP.jpg")); // NOI18N
+        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 830, 500));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -266,6 +230,7 @@ public class UvodnyPanelForm extends javax.swing.JFrame {
     private javax.swing.JLabel formatDatumuLabel;
     private javax.swing.JTable hodinyTable;
     private javax.swing.JButton instruktoriButton;
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JButton prihlaseniaButton;
     private javax.swing.JTextField vlozDatumTextField;

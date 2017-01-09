@@ -1,6 +1,7 @@
 package Entity;
 
 import java.sql.Time;
+import java.util.Objects;
 
 public class Hodina {
 
@@ -76,6 +77,51 @@ public class Hodina {
 
     public void setInstruktor(Instruktor instruktor) {
         this.instruktor = instruktor;
+    }
+
+    @Override
+    public int hashCode() {
+        int hash = 3;
+        return hash;
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj) {
+            return true;
+        }
+        if (obj == null) {
+            return false;
+        }
+        if (getClass() != obj.getClass()) {
+            return false;
+        }
+        final Hodina other = (Hodina) obj;
+        if (this.stav != other.stav) {
+            return false;
+        }
+        if (!Objects.equals(this.datum, other.datum)) {
+            return false;
+        }
+        if (!Objects.equals(this.typ, other.typ)) {
+            return false;
+        }
+        if (!Objects.equals(this.id, other.id)) {
+            return false;
+        }
+        if (!Objects.equals(this.od, other.od)) {
+            return false;
+        }
+        if (!Objects.equals(this.po, other.po)) {
+            return false;
+        }
+        if (!Objects.equals(this.zakaznik, other.zakaznik)) {
+            return false;
+        }
+        if (!Objects.equals(this.instruktor, other.instruktor)) {
+            return false;
+        }
+        return true;
     }
   
 }

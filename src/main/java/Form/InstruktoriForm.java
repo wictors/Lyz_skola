@@ -61,10 +61,14 @@ public class InstruktoriForm extends javax.swing.JFrame {
         zmazatButton = new javax.swing.JButton();
         editTypButton = new javax.swing.JButton();
         editAkreditaciaButton = new javax.swing.JButton();
+        jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         setLocation(new java.awt.Point(300, 150));
+        setPreferredSize(new java.awt.Dimension(810, 499));
         setResizable(false);
+        getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         instruktoriTable.setModel(new InstruktoriTableModel());
         instruktoriTable.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -74,12 +78,15 @@ public class InstruktoriForm extends javax.swing.JFrame {
         });
         jScrollPane1.setViewportView(instruktoriTable);
 
+        getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(214, 11, 580, 425));
+
         spatButton.setText("Späť");
         spatButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 spatButtonActionPerformed(evt);
             }
         });
+        getContentPane().add(spatButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 63, 174, -1));
 
         zoradPodlaPriezviskaButton.setText("Zoraď podľa priezviska");
         zoradPodlaPriezviskaButton.addActionListener(new java.awt.event.ActionListener() {
@@ -87,8 +94,10 @@ public class InstruktoriForm extends javax.swing.JFrame {
                 zoradPodlaPriezviskaButtonActionPerformed(evt);
             }
         });
+        getContentPane().add(zoradPodlaPriezviskaButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(214, 447, 174, -1));
 
         zadajAkreditaciuLabel.setText("Zadaj akreditáciu:");
+        getContentPane().add(zadajAkreditaciuLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 269, -1, 23));
 
         vypisPodlaAkreditacieButton.setText("Vypíš podľa akreditácie");
         vypisPodlaAkreditacieButton.addActionListener(new java.awt.event.ActionListener() {
@@ -96,8 +105,10 @@ public class InstruktoriForm extends javax.swing.JFrame {
                 vypisPodlaAkreditacieButtonActionPerformed(evt);
             }
         });
+        getContentPane().add(vypisPodlaAkreditacieButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 303, 174, -1));
 
         zadajTypLabel.setText("Zadaj typ:");
+        getContentPane().add(zadajTypLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 158, -1, -1));
 
         vypisPodlaTypuButton.setText("Vypíš podľa typu");
         vypisPodlaTypuButton.addActionListener(new java.awt.event.ActionListener() {
@@ -105,6 +116,7 @@ public class InstruktoriForm extends javax.swing.JFrame {
                 vypisPodlaTypuButtonActionPerformed(evt);
             }
         });
+        getContentPane().add(vypisPodlaTypuButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 188, 174, -1));
 
         pridatInstruktoraButton.setText("Pridaj inštruktora");
         pridatInstruktoraButton.addActionListener(new java.awt.event.ActionListener() {
@@ -112,10 +124,13 @@ public class InstruktoriForm extends javax.swing.JFrame {
                 pridatInstruktoraButtonActionPerformed(evt);
             }
         });
+        getContentPane().add(pridatInstruktoraButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 27, 174, -1));
 
         akreditaciaComboBox.setModel(new AkreditaciaComboBoxModel());
+        getContentPane().add(akreditaciaComboBox, new org.netbeans.lib.awtextra.AbsoluteConstraints(134, 270, 50, -1));
 
         typComboBox.setModel(new TypComboBoxModel());
+        getContentPane().add(typComboBox, new org.netbeans.lib.awtextra.AbsoluteConstraints(84, 154, 100, 23));
 
         vypisPodlaPriezviskaButton.setText("Vypíš podľa priezviska");
         vypisPodlaPriezviskaButton.addActionListener(new java.awt.event.ActionListener() {
@@ -123,6 +138,7 @@ public class InstruktoriForm extends javax.swing.JFrame {
                 vypisPodlaPriezviskaButtonActionPerformed(evt);
             }
         });
+        getContentPane().add(vypisPodlaPriezviskaButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 447, 174, -1));
 
         priezviskoTextField.setText("Priezvisko");
         priezviskoTextField.addActionListener(new java.awt.event.ActionListener() {
@@ -130,8 +146,10 @@ public class InstruktoriForm extends javax.swing.JFrame {
                 priezviskoTextFieldActionPerformed(evt);
             }
         });
+        getContentPane().add(priezviskoTextField, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 416, 174, -1));
 
         zadajPriezviskoLabel.setText("  Zadaj priezvisko:");
+        getContentPane().add(zadajPriezviskoLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 387, -1, 23));
 
         zmazatButton.setText("Zmazať inštruktora");
         zmazatButton.addActionListener(new java.awt.event.ActionListener() {
@@ -139,6 +157,7 @@ public class InstruktoriForm extends javax.swing.JFrame {
                 zmazatButtonActionPerformed(evt);
             }
         });
+        getContentPane().add(zmazatButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(654, 447, 140, -1));
 
         editTypButton.setText("Edit Typ");
         editTypButton.addActionListener(new java.awt.event.ActionListener() {
@@ -146,6 +165,7 @@ public class InstruktoriForm extends javax.swing.JFrame {
                 editTypButtonActionPerformed(evt);
             }
         });
+        getContentPane().add(editTypButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 217, 174, -1));
 
         editAkreditaciaButton.setText("Edit Akreditácia");
         editAkreditaciaButton.addActionListener(new java.awt.event.ActionListener() {
@@ -153,80 +173,10 @@ public class InstruktoriForm extends javax.swing.JFrame {
                 editAkreditaciaButtonActionPerformed(evt);
             }
         });
+        getContentPane().add(editAkreditaciaButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 332, 174, -1));
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                        .addComponent(vypisPodlaTypuButton, javax.swing.GroupLayout.DEFAULT_SIZE, 174, Short.MAX_VALUE)
-                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                            .addComponent(zadajTypLabel)
-                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(typComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                            .addComponent(zadajAkreditaciuLabel)
-                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(akreditaciaComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addComponent(vypisPodlaAkreditacieButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(zadajPriezviskoLabel)
-                        .addComponent(priezviskoTextField)
-                        .addComponent(editTypButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(editAkreditaciaButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(spatButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(pridatInstruktoraButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                    .addComponent(vypisPodlaPriezviskaButton, javax.swing.GroupLayout.PREFERRED_SIZE, 174, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 30, Short.MAX_VALUE)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(zoradPodlaPriezviskaButton, javax.swing.GroupLayout.PREFERRED_SIZE, 174, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(zmazatButton, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 580, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(21, 21, 21))
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(27, 27, 27)
-                        .addComponent(pridatInstruktoraButton)
-                        .addGap(13, 13, 13)
-                        .addComponent(spatButton)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(typComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(zadajTypLabel))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(vypisPodlaTypuButton)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(editTypButton)
-                        .addGap(29, 29, 29)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(zadajAkreditaciuLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(akreditaciaComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(vypisPodlaAkreditacieButton)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(editAkreditaciaButton)
-                        .addGap(32, 32, 32)
-                        .addComponent(zadajPriezviskoLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(priezviskoTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 425, Short.MAX_VALUE)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(vypisPodlaPriezviskaButton)
-                    .addComponent(zoradPodlaPriezviskaButton)
-                    .addComponent(zmazatButton))
-                .addGap(30, 30, 30))
-        );
+        jLabel1.setIcon(new javax.swing.ImageIcon("C:\\Users\\Silvia\\Desktop\\obrazky NETBeans\\Instrukt.jpg")); // NOI18N
+        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(-6, -16, 830, 530));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -318,6 +268,7 @@ public class InstruktoriForm extends javax.swing.JFrame {
     private javax.swing.JButton editAkreditaciaButton;
     private javax.swing.JButton editTypButton;
     private javax.swing.JTable instruktoriTable;
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JButton pridatInstruktoraButton;
     private javax.swing.JTextField priezviskoTextField;

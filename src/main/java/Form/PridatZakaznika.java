@@ -36,6 +36,7 @@ public class PridatZakaznika extends javax.swing.JDialog {
         zrusitButton = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        setLocation(new java.awt.Point(300, 150));
 
         menoLabel.setText("Meno :");
 

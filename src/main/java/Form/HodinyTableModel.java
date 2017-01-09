@@ -34,15 +34,35 @@ public class HodinyTableModel extends AbstractTableModel {
         Hodina hodina = hodinaDao.podlaDatumu(datum).get(rowIndex);
         switch (columnIndex) {
             case 0:
-                return hodina.getDatum();
+                String datum = hodina.getDatum();
+                if(datum == null){
+                    return "Neexistuje";
+                }
+                return datum;
             case 1:
-                return hodina.getOd();
+                String od = hodina.getOd().toString();
+                if(od == null){
+                    return "Neexistuje"; 
+                }
+                return od;
             case 2:
-                return hodina.getPo();
+                String po = hodina.getPo().toString();
+                if(po == null){
+                    return "Neexistuje";
+                }
+                return po;
             case 3:
-                return hodina.getInstruktor().getPriezvisko(); 
+                String instruktor = hodina.getInstruktor().getPriezvisko();
+                if(instruktor == null){
+                    return "Neexistuje";
+                }
+                return instruktor; 
             case 4:
-                return hodina.getZakaznik().getPriezvisko();
+                String zakaznik = hodina.getZakaznik().getPriezvisko();
+                if(zakaznik == null){
+                    return "Neexistuje";
+                }
+                return zakaznik;
             case 5:
                 String typ = hodina.getTyp();
                 if (typ == null){

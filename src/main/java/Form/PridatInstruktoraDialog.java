@@ -40,6 +40,7 @@ public class PridatInstruktoraDialog extends javax.swing.JDialog {
         hesloTextField = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        setLocation(new java.awt.Point(300, 150));
 
         menoLabel.setText("Meno:");
 

@@ -90,24 +90,35 @@ public class VyucbaForm extends javax.swing.JFrame {
         editInstruktorComboBox = new javax.swing.JComboBox<>();
         oduceneInstruktTextField = new javax.swing.JTextField();
         jLabel1 = new javax.swing.JLabel();
+        jLabel2 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setAutoRequestFocus(false);
         setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         setLocation(new java.awt.Point(300, 150));
         setResizable(false);
+        getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+        getContentPane().add(odTextField, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 30, 100, -1));
+        getContentPane().add(doTextField, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 90, 100, -1));
+        getContentPane().add(datumTextField, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 30, 100, -1));
 
         odLabel.setText("*Od : ");
+        getContentPane().add(odLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 30, -1, -1));
 
         doLabel.setText("*Do : ");
+        getContentPane().add(doLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 90, -1, -1));
 
         datumLabel.setText("*Dátum  : ");
+        getContentPane().add(datumLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 30, 60, -1));
 
         zakaznikLabel.setText("*Zákazník :");
+        getContentPane().add(zakaznikLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 90, 70, -1));
 
         instruktorLabel.setText("*Inštruktor : ");
+        getContentPane().add(instruktorLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 90, -1, -1));
 
         formatDatumuLabel.setText("(\"yyyy-MM-dd\")");
+        getContentPane().add(formatDatumuLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 50, -1, 19));
 
         spatButton.setText("Späť");
         spatButton.addActionListener(new java.awt.event.ActionListener() {
@@ -115,6 +126,7 @@ public class VyucbaForm extends javax.swing.JFrame {
                 spatButtonActionPerformed(evt);
             }
         });
+        getContentPane().add(spatButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(467, 137, 133, -1));
 
         pridatHodinuButton.setText("Pridať hodinu");
         pridatHodinuButton.addActionListener(new java.awt.event.ActionListener() {
@@ -122,6 +134,7 @@ public class VyucbaForm extends javax.swing.JFrame {
                 pridatHodinuButtonActionPerformed(evt);
             }
         });
+        getContentPane().add(pridatHodinuButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(45, 137, 163, -1));
 
         zakaznikComboBox.setModel(new ZakaznikComboBoxModel());
         zakaznikComboBox.addActionListener(new java.awt.event.ActionListener() {
@@ -129,12 +142,17 @@ public class VyucbaForm extends javax.swing.JFrame {
                 zakaznikComboBoxActionPerformed(evt);
             }
         });
+        getContentPane().add(zakaznikComboBox, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 90, 100, -1));
 
         instruktorComboBox.setModel(new InstruktorComboBoxModel());
+        getContentPane().add(instruktorComboBox, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 90, 100, -1));
 
         typLabel.setText("*Typ :");
+        getContentPane().add(typLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 30, -1, 20));
+        getContentPane().add(typTextField, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 30, 100, -1));
 
         oduceneHodinyTextField.setEditable(false);
+        getContentPane().add(oduceneHodinyTextField, new org.netbeans.lib.awtextra.AbsoluteConstraints(108, 259, 100, -1));
 
         oduceneHodinyButton.setText("Počet odučených hodín");
         oduceneHodinyButton.addActionListener(new java.awt.event.ActionListener() {
@@ -142,6 +160,7 @@ public class VyucbaForm extends javax.swing.JFrame {
                 oduceneHodinyButtonActionPerformed(evt);
             }
         });
+        getContentPane().add(oduceneHodinyButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(45, 218, 163, -1));
 
         hodinyInstruktoraButton.setText("Počet odučených hodín Inštruktora");
         hodinyInstruktoraButton.addActionListener(new java.awt.event.ActionListener() {
@@ -149,105 +168,17 @@ public class VyucbaForm extends javax.swing.JFrame {
                 hodinyInstruktoraButtonActionPerformed(evt);
             }
         });
+        getContentPane().add(hodinyInstruktoraButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(316, 218, 284, -1));
 
         editInstruktorComboBox.setModel(new InstruktorComboBoxModel());
+        getContentPane().add(editInstruktorComboBox, new org.netbeans.lib.awtextra.AbsoluteConstraints(316, 259, 100, -1));
+        getContentPane().add(oduceneInstruktTextField, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 259, 100, -1));
 
         jLabel1.setText("-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------");
+        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 184, -1, -1));
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(45, 45, 45)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(zakaznikLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 57, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(datumLabel))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(formatDatumuLabel)
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                .addGroup(layout.createSequentialGroup()
-                                    .addComponent(zakaznikComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addGap(44, 44, 44)
-                                    .addComponent(instruktorLabel))
-                                .addGroup(layout.createSequentialGroup()
-                                    .addComponent(datumTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addGap(77, 77, 77)
-                                    .addComponent(typLabel)))
-                            .addGroup(layout.createSequentialGroup()
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                    .addComponent(oduceneHodinyTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(oduceneHodinyButton, javax.swing.GroupLayout.PREFERRED_SIZE, 163, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(pridatHodinuButton, javax.swing.GroupLayout.PREFERRED_SIZE, 163, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addGap(108, 108, 108)))
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addGroup(layout.createSequentialGroup()
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                    .addComponent(typTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(instruktorComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addGroup(layout.createSequentialGroup()
-                                        .addGap(51, 51, 51)
-                                        .addComponent(doLabel))
-                                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                        .addComponent(odLabel)))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                    .addComponent(odTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(doTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                            .addComponent(hodinyInstruktoraButton, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 284, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(editInstruktorComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(84, 84, 84)
-                                .addComponent(oduceneInstruktTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addComponent(spatButton, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 133, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(0, 0, Short.MAX_VALUE))))
-            .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(23, 23, 23)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(datumLabel)
-                    .addComponent(typLabel)
-                    .addComponent(typTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(odTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(datumTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(odLabel))
-                .addGap(7, 7, 7)
-                .addComponent(formatDatumuLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 19, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(zakaznikLabel)
-                    .addComponent(zakaznikComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(doLabel)
-                    .addComponent(doTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(instruktorComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(instruktorLabel))
-                .addGap(30, 30, 30)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(pridatHodinuButton)
-                    .addComponent(spatButton))
-                .addGap(24, 24, 24)
-                .addComponent(jLabel1)
-                .addGap(20, 20, 20)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(oduceneHodinyButton)
-                    .addComponent(hodinyInstruktoraButton))
-                .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(oduceneHodinyTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(editInstruktorComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(oduceneInstruktTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(121, Short.MAX_VALUE))
-        );
+        jLabel2.setIcon(new javax.swing.ImageIcon("C:\\Users\\Silvia\\Desktop\\obrazky NETBeans\\vyucba.jpg")); // NOI18N
+        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 700, 400));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -334,6 +265,7 @@ public class VyucbaForm extends javax.swing.JFrame {
     private javax.swing.JComboBox<Instruktor> instruktorComboBox;
     private javax.swing.JLabel instruktorLabel;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel odLabel;
     private javax.swing.JTextField odTextField;
     private javax.swing.JButton oduceneHodinyButton;
